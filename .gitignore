@@ -35,3 +35,7 @@ junos-mcp-server/devices.json
 
 # ── Results / cache ──
 web_ui/results/
+
+# ── Deploy secrets (never commit) ──
+deploy/.env
+deploy/certs/

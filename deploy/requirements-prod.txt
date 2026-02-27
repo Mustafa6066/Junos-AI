@@ -1,0 +1,5 @@
+# Production-only Python dependencies (on top of web_ui/requirements.txt)
+gunicorn>=22.0
+celery>=5.4
+redis>=5.0
+psycopg2-binary>=2.9

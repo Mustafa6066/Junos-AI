@@ -85,6 +85,9 @@ NOTIFICATIONS_DB = BASE_DIR / "web_ui" / "notifications.db"
 logger = logging.getLogger("noc-webui")
 logger.setLevel(logging.INFO)
 
+# ── App start time (for uptime tracking) ──
+_app_start_time = time.time()
+
 # ── Flask App ──────────────────────────────────────────────────
 app = Flask(__name__,
             template_folder="templates",
@@ -2033,8 +2036,19 @@ def api_ai_analyze():
 
 @app.route("/api/health")
 def api_health():
-    """Check connectivity to MCP server and Ollama."""
-    health = {"mcp": "unknown", "ollama": "unknown", "timestamp": datetime.now().isoformat()}
+    """Production health check — used by load balancers, Docker HEALTHCHECK, and Nginx /healthz.
+    Returns: 200 OK with component status, or 503 if critical services are down."""
+    health = {
+        "status": "ok",
+        "version": "24.0",
+        "mcp": "unknown",
+        "ollama": "unknown",
+        "database": "ok",
+        "scheduler": "running" if _scheduler_running else "stopped",
+        "golden_configs": len(list(GOLDEN_CONFIG_DIR.glob("*.conf"))),
+        "uptime_seconds": int(time.time() - _app_start_time),
+        "timestamp": datetime.now().isoformat()
+    }
     # Check MCP
     try:
         result = run_async(mcp_get_router_list())
@@ -2048,9 +2062,13 @@ def api_health():
         models = resp.json().get("models", [])
         health["ollama"] = "connected"
         health["ollama_model"] = OLLAMA_MODEL
+        health["ollama_models_count"] = len(models)
         health["ollama_models"] = json.dumps([m.get("name", "") for m in models])
     except Exception as e:
         health["ollama"] = f"error: {e}"
+    # Determine overall status
+    if health["mcp"] != "connected" and health["ollama"] != "connected":
+        health["status"] = "degraded"
     return jsonify(health)
 
 @app.route("/api/ai/models")
@@ -4965,12 +4983,13 @@ if __name__ == "__main__":
     start_scheduler()
     print(f"""
 ╔══════════════════════════════════════════════════════════════╗
-║   Junos AI NOC — Web UI v22.0 (Full MCP + AI)               ║
+║   Junos AI NOC — Web UI v24.0 (Production-Ready)             ║
 ║   ─────────────────────────────────────────────────────────  ║
 ║   URL:    http://localhost:{port}                            ║
 ║   MCP:    {MCP_SERVER_URL}           ║
 ║   Ollama: {OLLAMA_URL}                     ║
 ║   Mode:   {'Development' if os.environ.get('FLASK_DEBUG') else 'Production'}                                      ║
+║   DB:     {'PostgreSQL' if os.environ.get('NOC_DB_MODE') == 'postgres' else 'SQLite (local)'}                                  ║
 ║   Configs: {len(list(GOLDEN_CONFIG_DIR.glob('*.conf')))} golden | Templates: {len(list(TEMPLATES_DIR.glob('*.j2')))}          ║
 ║   Scheduler: Active | Workflows: {len(list(WORKFLOWS_DIR.glob('*.json')))} saved              ║
 ╚══════════════════════════════════════════════════════════════╝

@@ -351,6 +351,7 @@ npm test
 
 | Document | Description |
 |----------|-------------|
+| [`PRODUCTION_DEPLOYMENT_GUIDE.md`](PRODUCTION_DEPLOYMENT_GUIDE.md) | **Production readiness** — Gunicorn, PostgreSQL, Celery, Nginx, Docker, RBAC, AI validation |
 | [`config.yaml`](config.yaml) | All tunable settings with inline comments |
 | [`web_ui/USE_CASES.md`](web_ui/USE_CASES.md) | Complete function-by-function use case catalog |
 | [`FULL_PROJECT_DOCUMENTATION.md`](FULL_PROJECT_DOCUMENTATION.md) | Architecture deep dive |
@@ -359,6 +360,25 @@ npm test
 | [`JUNOS_DEEP_KNOWLEDGE.md`](JUNOS_DEEP_KNOWLEDGE.md) | Advanced Junos troubleshooting |
 | [`EXPERT_EXAMPLES.md`](EXPERT_EXAMPLES.md) | Real-world expert examples for RAG |
 | [`junos-mcp-server/README.md`](junos-mcp-server/README.md) | MCP server setup and usage |
+
+---
+
+## Production Deployment
+
+For enterprise-grade deployment with PostgreSQL, Celery workers, Nginx SSL termination, and Docker Compose — see the **[Production Deployment Guide](PRODUCTION_DEPLOYMENT_GUIDE.md)**.
+
+```bash
+cd deploy
+cp .env.example .env   # Fill in secrets
+docker compose up -d   # Start full stack
+```
+
+Key components:
+- **Gunicorn + Eventlet** — replaces Flask dev server (multi-worker, WebSocket-safe)
+- **PostgreSQL** — replaces 5 SQLite databases (concurrent-safe)
+- **Celery + Redis** — replaces daemon thread scheduler (durable, restartable)
+- **Nginx** — TLS, static files, rate limiting, SSE/WebSocket proxy rules
+- **OAuth2-Proxy** — optional SSO integration (Keycloak, Azure AD, Okta)
 
 ---
 
