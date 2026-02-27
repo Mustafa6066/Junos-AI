@@ -1,0 +1,30 @@
+{# System Hardening Configuration Template #}
+{# Usage: Render with vars: ntp_servers (list), syslog_host, dns_servers (list), timezone #}
+
+{# NTP Configuration #}
+{% for ntp in ntp_servers | default(["10.0.0.1"]) %}
+set system ntp server {{ ntp }}
+{% endfor %}
+
+{# DNS Configuration #}
+{% for dns in dns_servers | default(["8.8.8.8", "8.8.4.4"]) %}
+set system name-server {{ dns }}
+{% endfor %}
+
+{# Timezone #}
+set system time-zone {{ timezone | default("UTC") }}
+
+{# Syslog #}
+{% if syslog_host is defined %}
+set system syslog host {{ syslog_host }} any info
+set system syslog host {{ syslog_host }} authorization any
+set system syslog host {{ syslog_host }} interactive-commands any
+{% endif %}
+
+{# Security Hardening #}
+set system login retry-options tries-before-disconnect 3
+set system login retry-options backoff-threshold 1
+set system login retry-options backoff-factor 5
+set system services ssh root-login deny
+set system services ssh protocol-version v2
+set system services ssh rate-limit 5

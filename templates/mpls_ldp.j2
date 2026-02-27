@@ -1,0 +1,29 @@
+{# MPLS/LDP Configuration Template #}
+{# Usage: Render with vars: interfaces (list), ldp_interfaces (list), lsp_list (list of {name, to, bandwidth}) #}
+
+{# MPLS Interfaces #}
+{% for intf in interfaces %}
+set protocols mpls interface {{ intf }}
+{% endfor %}
+
+{# LDP Configuration #}
+{% for intf in ldp_interfaces | default(interfaces) %}
+set protocols ldp interface {{ intf }}
+{% endfor %}
+set protocols ldp deaggregate
+
+{# RSVP (if LSPs defined) #}
+{% if lsp_list is defined %}
+{% for intf in interfaces %}
+set protocols rsvp interface {{ intf }}
+{% endfor %}
+
+{# LSP Configuration #}
+{% for lsp in lsp_list %}
+set protocols mpls label-switched-path {{ lsp.name }} to {{ lsp.to }}
+{% if lsp.bandwidth is defined %}
+set protocols mpls label-switched-path {{ lsp.name }} bandwidth {{ lsp.bandwidth }}
+{% endif %}
+set protocols mpls label-switched-path {{ lsp.name }} adaptive
+{% endfor %}
+{% endif %}

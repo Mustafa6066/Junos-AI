@@ -1,0 +1,266 @@
+{
+  "c420c07aabb9": {
+    "detail": "P11 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P11",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "990e28c188ef": {
+    "detail": "P12 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P12",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "f50c755d835e": {
+    "detail": "P13 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P13",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "d07008f4f59a": {
+    "detail": "P14 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P14",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "fa6707926680": {
+    "detail": "P21 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P21",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "f11820a84eef": {
+    "detail": "P22 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P22",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "d583cd2577c6": {
+    "detail": "P23 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P23",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "6cf3d985f908": {
+    "detail": "P24 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "P24",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "76825935d463": {
+    "detail": "PE1 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "PE1",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "7b40b4695938": {
+    "detail": "PE2 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "PE2",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "c34e61bc2ef0": {
+    "detail": "PE3 has OSPF interfaces configured but **0 OSPF neighbors**",
+    "severity": "CRITICAL",
+    "router": "PE3",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "efab5eb875ec": {
+    "detail": "RSVP session issue on P11: Connection error to P11: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P11",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "8918ce177daa": {
+    "detail": "RSVP session issue on P12: Connection error to P12: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P12",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "af61721af8fe": {
+    "detail": "RSVP session issue on P13: Connection error to P13: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P13",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "3b1a40bd362c": {
+    "detail": "RSVP session issue on P14: Connection error to P14: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P14",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "30d8478b5e43": {
+    "detail": "RSVP session issue on P21: Connection error to P21: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P21",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "6cf7c281ad3f": {
+    "detail": "RSVP session issue on P22: Connection error to P22: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P22",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "02ddb2d0a40c": {
+    "detail": "RSVP session issue on P23: Connection error to P23: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P23",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "9899e779b73f": {
+    "detail": "RSVP session issue on P24: Connection error to P24: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "P24",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "9226cc6241d3": {
+    "detail": "RSVP session issue on PE1: Connection error to PE1: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "PE1",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "8cec0de1dbf7": {
+    "detail": "RSVP session issue on PE2: Connection error to PE2: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "PE2",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  },
+  "66060f3b72b0": {
+    "detail": "RSVP session issue on PE3: Connection error to PE3: ConnectTimeoutError(66.129.234.209)",
+    "severity": "WARNING",
+    "router": "PE3",
+    "first_seen": "2026-02-20 23:49",
+    "last_seen": "2026-02-21 19:27",
+    "occurrences": 2,
+    "history": [
+      "2026-02-20 23:49",
+      "2026-02-21 19:27"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "conv_1771681194",
+  "topic": "Migrated Session",
+  "created_at": "2026-02-21T17:33:55.041503",
+  "updated_at": "2026-02-21T17:33:55.041508",
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Run a full network audit."
+    },
+    {
+      "role": "assistant",
+      "content": "Audit complete. Report saved to `NETWORK_AUDIT_2026-02-20_234905.md`. Here's the summary:\n\n# \ud83d\udd0d Full Network Audit Report\n\n> \ud83d\udcc5 **February 20, 2026 23:49** \u00b7 \ud83e\udd16 Junos MCP v11.0 + Ollama (gpt-oss) \u00b7 \u23f1\ufe0f 4817.7s \u00b7 \ud83d\udda5\ufe0f 11 devices\n\n---\n\n## \ud83d\udcca 0. Executive Summary\n\n| Metric | Value |\n|--------|-------|\n| **Network Health Score** | \ud83d\udd34 **0/100** (F \u2014 CRITICAL) |\n| **Devices Audited** | 11 |\n| **Critical Issues** | 11 |\n| **Warnings** | 11 |\n| **Config Drifts** | 0 |\n\n> \u25b2 **Top Risk:** OSPF adjacency failures detected. Review Section 4 for root cause analysis.\n\n> \u25c8 **AI Summary:** All core routers are unreachable due to a management\u2011network connectivity failure. This blocks every routing protocol and MPLS service, causing a full network outage. Restoring the physical or management link will automatically bring all protocols back online.\n\n---\n\n### \u25eb Severity Heatmap\n\n| Device | OSPF | BGP | LDP | BFD | IS-IS | System |\n|--------|-----|-----|-----|-----|-----|-----|\n| **P11** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **P12** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **P13** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **P14** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **P21** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **P22** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **P23** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **P24** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **PE1** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **PE2** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n| **PE3** | \ud83d\udd34 | \ud83d\udd34 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe2 | \ud83d\udfe1 |\n\n\n### \u25c7 ITIL Priority Matrix\n\n| Priority | Label | Device | Issue | Target MTTR | SLA Risk |\n|----------|-------|--------|-------|-------------|----------|\n| \ud83d\udfe0 **P2** | High \u2014 Urgent | P11 | P11 has OSPF interfaces configured but **0 OSPF neighbors** | < 2 hours | 99.99% SLA impact |\n| \ud83d\udfe0 **P2** | High \u2014 Urgent | P12 | P12 has OSPF interfaces configured but **0 OSPF neighbors** | < 2 hours | 99.99% SLA impact |\n| \ud83d\udfe0 **P2** | High \u2014 Urgent | P13 | P13 has OSPF interfaces configured but **0 OSPF neighbors** | < 2 hours | 99.99% SLA impact |\n| \ud83d\udfe0 **P2** | High \u2014 Urgent | P14 | P14 has OSPF interfaces configured but **0 OSPF neighbors** | < 2 hours | 99.99% SLA impact |\n| \ud83d\udfe0 **P2** | High \u2014 Urgent | P21 | P21 has OSPF interfaces "
+    }
+  ]
+}

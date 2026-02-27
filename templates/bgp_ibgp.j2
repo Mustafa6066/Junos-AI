@@ -1,0 +1,15 @@
+{# iBGP Full-Mesh Peering Template #}
+{# Usage: Render with vars: local_as, neighbors (list of {ip, description}), family (optional) #}
+
+set protocols bgp group IBGP type internal
+set protocols bgp group IBGP local-as {{ local_as }}
+{% for neighbor in neighbors %}
+set protocols bgp group IBGP neighbor {{ neighbor.ip }} description "{{ neighbor.description | default('iBGP peer') }}"
+{% endfor %}
+{% if family | default("inet-vpn") == "inet-vpn" %}
+set protocols bgp group IBGP family inet-vpn unicast
+{% elif family == "inet" %}
+set protocols bgp group IBGP family inet unicast
+{% endif %}
+set protocols bgp group IBGP export IBGP-EXPORT
+set protocols bgp group IBGP import IBGP-IMPORT

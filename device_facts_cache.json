@@ -1,0 +1,866 @@
+{
+  "_cached_at": "2026-02-20T23:49:05.287647",
+  "facts": {
+    "P21": {
+      "current_re": [
+        "re0",
+        "master",
+        "node",
+        "fwdd",
+        "member",
+        "pfem"
+      ],
+      "domain": null,
+      "fqdn": "P23",
+      "switch_style": "BRIDGE_DOMAIN",
+      "HOME": "/var/home/jcluser",
+      "srx_cluster": null,
+      "srx_cluster_id": null,
+      "srx_cluster_redundancy_group": null,
+      "RE_hw_mi": false,
+      "serialnumber": "VM69918AFD49",
+      "2RE": false,
+      "master": "RE0",
+      "RE0": {
+        "mastership_state": "master",
+        "status": "OK",
+        "model": "RE-VMX",
+        "last_reboot_reason": "Router rebooted after a normal shutdown.",
+        "up_time": "5 days, 10 hours, 10 minutes, 13 seconds"
+      },
+      "RE1": null,
+      "re_info": {
+        "default": {
+          "0": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          },
+          "default": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          }
+        }
+      },
+      "re_master": {
+        "default": "0"
+      },
+      "junos_info": {
+        "re0": {
+          "text": "23.2R1.13",
+          "object": {
+            "type": "R",
+            "major": [
+              23,
+              2
+            ],
+            "minor": "1",
+            "build": 13,
+            "as_tuple": [
+              23,
+              2,
+              "R",
+              "1",
+              13
+            ],
+            "v_dict": {
+              "major": [
+                23,
+                2
+              ],
+              "type": "R",
+              "minor": "1",
+              "build": 13
+            }
+          }
+        }
+      },
+      "hostname": "P23",
+      "hostname_info": {
+        "re0": "P23"
+      },
+      "model": "VMX",
+      "model_info": {
+        "re0": "VMX"
+      },
+      "version": "23.2R1.13",
+      "version_info": {
+        "type": "R",
+        "major": [
+          23,
+          2
+        ],
+        "minor": "1",
+        "build": 13,
+        "as_tuple": [
+          23,
+          2,
+          "R",
+          "1",
+          13
+        ],
+        "v_dict": {
+          "major": [
+            23,
+            2
+          ],
+          "type": "R",
+          "minor": "1",
+          "build": 13
+        }
+      },
+      "version_RE0": "23.2R1.13",
+      "version_RE1": null,
+      "vc_capable": false,
+      "vc_mode": null,
+      "vc_fabric": null,
+      "vc_master": null,
+      "ifd_style": "CLASSIC",
+      "personality": "MX",
+      "virtual": true,
+      "vmhost": false,
+      "vmhost_info": {}
+    },
+    "P22": {
+      "current_re": [
+        "re0",
+        "master",
+        "node",
+        "fwdd",
+        "member",
+        "pfem"
+      ],
+      "domain": null,
+      "fqdn": "P22",
+      "switch_style": "BRIDGE_DOMAIN",
+      "HOME": "/var/home/jcluser",
+      "srx_cluster": null,
+      "srx_cluster_id": null,
+      "srx_cluster_redundancy_group": null,
+      "RE_hw_mi": false,
+      "serialnumber": "VM69918AFAFE",
+      "2RE": false,
+      "master": "RE0",
+      "RE0": {
+        "mastership_state": "master",
+        "status": "OK",
+        "model": "RE-VMX",
+        "last_reboot_reason": "Router rebooted after a normal shutdown.",
+        "up_time": "5 days, 10 hours, 8 minutes, 31 seconds"
+      },
+      "RE1": null,
+      "re_info": {
+        "default": {
+          "0": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          },
+          "default": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          }
+        }
+      },
+      "re_master": {
+        "default": "0"
+      },
+      "junos_info": {
+        "re0": {
+          "text": "23.2R1.13",
+          "object": {
+            "type": "R",
+            "major": [
+              23,
+              2
+            ],
+            "minor": "1",
+            "build": 13,
+            "as_tuple": [
+              23,
+              2,
+              "R",
+              "1",
+              13
+            ],
+            "v_dict": {
+              "major": [
+                23,
+                2
+              ],
+              "type": "R",
+              "minor": "1",
+              "build": 13
+            }
+          }
+        }
+      },
+      "hostname": "P22",
+      "hostname_info": {
+        "re0": "P22"
+      },
+      "model": "VMX",
+      "model_info": {
+        "re0": "VMX"
+      },
+      "version": "23.2R1.13",
+      "version_info": {
+        "type": "R",
+        "major": [
+          23,
+          2
+        ],
+        "minor": "1",
+        "build": 13,
+        "as_tuple": [
+          23,
+          2,
+          "R",
+          "1",
+          13
+        ],
+        "v_dict": {
+          "major": [
+            23,
+            2
+          ],
+          "type": "R",
+          "minor": "1",
+          "build": 13
+        }
+      },
+      "version_RE0": "23.2R1.13",
+      "version_RE1": null,
+      "vc_capable": false,
+      "vc_mode": null,
+      "vc_fabric": null,
+      "vc_master": null,
+      "ifd_style": "CLASSIC",
+      "personality": "MX",
+      "virtual": true,
+      "vmhost": false,
+      "vmhost_info": {}
+    },
+    "P23": {
+      "current_re": [
+        "re0",
+        "master",
+        "node",
+        "fwdd",
+        "member",
+        "pfem"
+      ],
+      "domain": null,
+      "fqdn": "P14",
+      "switch_style": "BRIDGE_DOMAIN",
+      "HOME": "/var/home/jcluser",
+      "srx_cluster": null,
+      "srx_cluster_id": null,
+      "srx_cluster_redundancy_group": null,
+      "RE_hw_mi": false,
+      "serialnumber": "VM69918B00BD",
+      "2RE": false,
+      "master": "RE0",
+      "RE0": {
+        "mastership_state": "master",
+        "status": "OK",
+        "model": "RE-VMX",
+        "last_reboot_reason": "Router rebooted after a normal shutdown.",
+        "up_time": "5 days, 10 hours, 10 minutes, 19 seconds"
+      },
+      "RE1": null,
+      "re_info": {
+        "default": {
+          "0": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          },
+          "default": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          }
+        }
+      },
+      "re_master": {
+        "default": "0"
+      },
+      "junos_info": {
+        "re0": {
+          "text": "23.2R1.13",
+          "object": {
+            "type": "R",
+            "major": [
+              23,
+              2
+            ],
+            "minor": "1",
+            "build": 13,
+            "as_tuple": [
+              23,
+              2,
+              "R",
+              "1",
+              13
+            ],
+            "v_dict": {
+              "major": [
+                23,
+                2
+              ],
+              "type": "R",
+              "minor": "1",
+              "build": 13
+            }
+          }
+        }
+      },
+      "hostname": "P14",
+      "hostname_info": {
+        "re0": "P14"
+      },
+      "model": "VMX",
+      "model_info": {
+        "re0": "VMX"
+      },
+      "version": "23.2R1.13",
+      "version_info": {
+        "type": "R",
+        "major": [
+          23,
+          2
+        ],
+        "minor": "1",
+        "build": 13,
+        "as_tuple": [
+          23,
+          2,
+          "R",
+          "1",
+          13
+        ],
+        "v_dict": {
+          "major": [
+            23,
+            2
+          ],
+          "type": "R",
+          "minor": "1",
+          "build": 13
+        }
+      },
+      "version_RE0": "23.2R1.13",
+      "version_RE1": null,
+      "vc_capable": false,
+      "vc_mode": null,
+      "vc_fabric": null,
+      "vc_master": null,
+      "ifd_style": "CLASSIC",
+      "personality": "MX",
+      "virtual": true,
+      "vmhost": false,
+      "vmhost_info": {}
+    },
+    "P24": {
+      "current_re": [
+        "re0",
+        "master",
+        "node",
+        "fwdd",
+        "member",
+        "pfem"
+      ],
+      "domain": null,
+      "fqdn": "P24",
+      "switch_style": "BRIDGE_DOMAIN",
+      "HOME": "/var/home/jcluser",
+      "srx_cluster": null,
+      "srx_cluster_id": null,
+      "srx_cluster_redundancy_group": null,
+      "RE_hw_mi": false,
+      "serialnumber": "VM69918B0B19",
+      "2RE": false,
+      "master": "RE0",
+      "RE0": {
+        "mastership_state": "master",
+        "status": "OK",
+        "model": "RE-VMX",
+        "last_reboot_reason": "Router rebooted after a normal shutdown.",
+        "up_time": "5 days, 10 hours, 12 minutes, 48 seconds"
+      },
+      "RE1": null,
+      "re_info": {
+        "default": {
+          "0": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          },
+          "default": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          }
+        }
+      },
+      "re_master": {
+        "default": "0"
+      },
+      "junos_info": {
+        "re0": {
+          "text": "23.2R1.13",
+          "object": {
+            "type": "R",
+            "major": [
+              23,
+              2
+            ],
+            "minor": "1",
+            "build": 13,
+            "as_tuple": [
+              23,
+              2,
+              "R",
+              "1",
+              13
+            ],
+            "v_dict": {
+              "major": [
+                23,
+                2
+              ],
+              "type": "R",
+              "minor": "1",
+              "build": 13
+            }
+          }
+        }
+      },
+      "hostname": "P24",
+      "hostname_info": {
+        "re0": "P24"
+      },
+      "model": "VMX",
+      "model_info": {
+        "re0": "VMX"
+      },
+      "version": "23.2R1.13",
+      "version_info": {
+        "type": "R",
+        "major": [
+          23,
+          2
+        ],
+        "minor": "1",
+        "build": 13,
+        "as_tuple": [
+          23,
+          2,
+          "R",
+          "1",
+          13
+        ],
+        "v_dict": {
+          "major": [
+            23,
+            2
+          ],
+          "type": "R",
+          "minor": "1",
+          "build": 13
+        }
+      },
+      "version_RE0": "23.2R1.13",
+      "version_RE1": null,
+      "vc_capable": false,
+      "vc_mode": null,
+      "vc_fabric": null,
+      "vc_master": null,
+      "ifd_style": "CLASSIC",
+      "personality": "MX",
+      "virtual": true,
+      "vmhost": false,
+      "vmhost_info": {}
+    },
+    "PE1": {
+      "current_re": [
+        "re0",
+        "master",
+        "node",
+        "fwdd",
+        "member",
+        "pfem"
+      ],
+      "domain": null,
+      "fqdn": "P24",
+      "switch_style": "BRIDGE_DOMAIN",
+      "HOME": "/var/home/jcluser",
+      "srx_cluster": null,
+      "srx_cluster_id": null,
+      "srx_cluster_redundancy_group": null,
+      "RE_hw_mi": false,
+      "serialnumber": "VM69918B0B19",
+      "2RE": false,
+      "master": "RE0",
+      "RE0": {
+        "mastership_state": "master",
+        "status": "OK",
+        "model": "RE-VMX",
+        "last_reboot_reason": "Router rebooted after a normal shutdown.",
+        "up_time": "5 days, 10 hours, 10 minutes, 58 seconds"
+      },
+      "RE1": null,
+      "re_info": {
+        "default": {
+          "0": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          },
+          "default": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          }
+        }
+      },
+      "re_master": {
+        "default": "0"
+      },
+      "junos_info": {
+        "re0": {
+          "text": "23.2R1.13",
+          "object": {
+            "type": "R",
+            "major": [
+              23,
+              2
+            ],
+            "minor": "1",
+            "build": 13,
+            "as_tuple": [
+              23,
+              2,
+              "R",
+              "1",
+              13
+            ],
+            "v_dict": {
+              "major": [
+                23,
+                2
+              ],
+              "type": "R",
+              "minor": "1",
+              "build": 13
+            }
+          }
+        }
+      },
+      "hostname": "P24",
+      "hostname_info": {
+        "re0": "P24"
+      },
+      "model": "VMX",
+      "model_info": {
+        "re0": "VMX"
+      },
+      "version": "23.2R1.13",
+      "version_info": {
+        "type": "R",
+        "major": [
+          23,
+          2
+        ],
+        "minor": "1",
+        "build": 13,
+        "as_tuple": [
+          23,
+          2,
+          "R",
+          "1",
+          13
+        ],
+        "v_dict": {
+          "major": [
+            23,
+            2
+          ],
+          "type": "R",
+          "minor": "1",
+          "build": 13
+        }
+      },
+      "version_RE0": "23.2R1.13",
+      "version_RE1": null,
+      "vc_capable": false,
+      "vc_mode": null,
+      "vc_fabric": null,
+      "vc_master": null,
+      "ifd_style": "CLASSIC",
+      "personality": "MX",
+      "virtual": true,
+      "vmhost": false,
+      "vmhost_info": {}
+    },
+    "PE2": {
+      "current_re": [
+        "re0",
+        "master",
+        "node",
+        "fwdd",
+        "member",
+        "pfem"
+      ],
+      "domain": null,
+      "fqdn": "PE2",
+      "switch_style": "BRIDGE_DOMAIN",
+      "HOME": "/var/home/jcluser",
+      "srx_cluster": null,
+      "srx_cluster_id": null,
+      "srx_cluster_redundancy_group": null,
+      "RE_hw_mi": false,
+      "serialnumber": "VM69918C016E",
+      "2RE": false,
+      "master": "RE0",
+      "RE0": {
+        "mastership_state": "master",
+        "status": "OK",
+        "model": "RE-VMX",
+        "last_reboot_reason": "Router rebooted after a normal shutdown.",
+        "up_time": "5 days, 10 hours, 12 minutes, 21 seconds"
+      },
+      "RE1": null,
+      "re_info": {
+        "default": {
+          "0": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          },
+          "default": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          }
+        }
+      },
+      "re_master": {
+        "default": "0"
+      },
+      "junos_info": {
+        "re0": {
+          "text": "23.2R1.13",
+          "object": {
+            "type": "R",
+            "major": [
+              23,
+              2
+            ],
+            "minor": "1",
+            "build": 13,
+            "as_tuple": [
+              23,
+              2,
+              "R",
+              "1",
+              13
+            ],
+            "v_dict": {
+              "major": [
+                23,
+                2
+              ],
+              "type": "R",
+              "minor": "1",
+              "build": 13
+            }
+          }
+        }
+      },
+      "hostname": "PE2",
+      "hostname_info": {
+        "re0": "PE2"
+      },
+      "model": "VMX",
+      "model_info": {
+        "re0": "VMX"
+      },
+      "version": "23.2R1.13",
+      "version_info": {
+        "type": "R",
+        "major": [
+          23,
+          2
+        ],
+        "minor": "1",
+        "build": 13,
+        "as_tuple": [
+          23,
+          2,
+          "R",
+          "1",
+          13
+        ],
+        "v_dict": {
+          "major": [
+            23,
+            2
+          ],
+          "type": "R",
+          "minor": "1",
+          "build": 13
+        }
+      },
+      "version_RE0": "23.2R1.13",
+      "version_RE1": null,
+      "vc_capable": false,
+      "vc_mode": null,
+      "vc_fabric": null,
+      "vc_master": null,
+      "ifd_style": "CLASSIC",
+      "personality": "MX",
+      "virtual": true,
+      "vmhost": false,
+      "vmhost_info": {}
+    },
+    "PE3": {
+      "current_re": [
+        "re0",
+        "master",
+        "node",
+        "fwdd",
+        "member",
+        "pfem"
+      ],
+      "domain": null,
+      "fqdn": "PE3",
+      "switch_style": "BRIDGE_DOMAIN",
+      "HOME": "/var/home/jcluser",
+      "srx_cluster": null,
+      "srx_cluster_id": null,
+      "srx_cluster_redundancy_group": null,
+      "RE_hw_mi": false,
+      "serialnumber": "VM69918B081E",
+      "2RE": false,
+      "master": "RE0",
+      "RE0": {
+        "mastership_state": "master",
+        "status": "OK",
+        "model": "RE-VMX",
+        "last_reboot_reason": "Router rebooted after a normal shutdown.",
+        "up_time": "5 days, 10 hours, 12 minutes"
+      },
+      "RE1": null,
+      "re_info": {
+        "default": {
+          "0": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          },
+          "default": {
+            "mastership_state": "master",
+            "status": "OK",
+            "model": "RE-VMX",
+            "last_reboot_reason": "Router rebooted after a normal shutdown."
+          }
+        }
+      },
+      "re_master": {
+        "default": "0"
+      },
+      "junos_info": {
+        "re0": {
+          "text": "23.2R1.13",
+          "object": {
+            "type": "R",
+            "major": [
+              23,
+              2
+            ],
+            "minor": "1",
+            "build": 13,
+            "as_tuple": [
+              23,
+              2,
+              "R",
+              "1",
+              13
+            ],
+            "v_dict": {
+              "major": [
+                23,
+                2
+              ],
+              "type": "R",
+              "minor": "1",
+              "build": 13
+            }
+          }
+        }
+      },
+      "hostname": "PE3",
+      "hostname_info": {
+        "re0": "PE3"
+      },
+      "model": "VMX",
+      "model_info": {
+        "re0": "VMX"
+      },
+      "version": "23.2R1.13",
+      "version_info": {
+        "type": "R",
+        "major": [
+          23,
+          2
+        ],
+        "minor": "1",
+        "build": 13,
+        "as_tuple": [
+          23,
+          2,
+          "R",
+          "1",
+          13
+        ],
+        "v_dict": {
+          "major": [
+            23,
+            2
+          ],
+          "type": "R",
+          "minor": "1",
+          "build": 13
+        }
+      },
+      "version_RE0": "23.2R1.13",
+      "version_RE1": null,
+      "vc_capable": false,
+      "vc_mode": null,
+      "vc_fabric": null,
+      "vc_master": null,
+      "ifd_style": "CLASSIC",
+      "personality": "MX",
+      "virtual": true,
+      "vmhost": false,
+      "vmhost_info": {}
+    }
+  }
+}

@@ -1,0 +1,6 @@
+2026-02-18 11:32:48,119 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-18 11:32:48,122 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 202 Accepted"
+2026-02-18 11:32:48,123 [INFO] junos-bridge: MCP session established: f05b60311da0433ab7b232a6ec6a0e35
+2026-02-18 11:32:48,124 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-18 11:32:48,130 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-18 11:32:48,132 [INFO] junos-bridge: Discovered 11 devices: ['P11', 'P12', 'P13', 'P14', 'P21', 'P22', 'P23', 'P24', 'PE1', 'PE2', 'PE3']

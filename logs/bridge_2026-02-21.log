@@ -1,0 +1,424 @@
+2026-02-21 15:40:01,016 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 15:40:01,017 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 15:40:01,021 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 15:40:01,219 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 15:40:01,221 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 202 Accepted"
+2026-02-21 15:40:01,222 [INFO] junos-bridge: MCP session established: ed476b028b5549f39fa3e81ab992c4d1
+2026-02-21 15:40:01,223 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 15:40:01,225 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 15:40:01,228 [INFO] junos-bridge: Discovered 11 devices: ['P11', 'P12', 'P13', 'P14', 'P21', 'P22', 'P23', 'P24', 'PE1', 'PE2', 'PE3']
+2026-02-21 15:40:19,156 [INFO] junos-bridge: Facts cache expired (age=57074s > TTL=14400s)
+2026-02-21 15:40:19,157 [INFO] junos-bridge: Background health poll started (every 300s)
+2026-02-21 15:40:19,161 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 15:40:19,163 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 15:40:19,163 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 15:40:49,168 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:28:43,186 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 16:28:43,188 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 16:28:43,191 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 16:28:43,379 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:28:43,381 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 202 Accepted"
+2026-02-21 16:28:43,381 [INFO] junos-bridge: MCP session established: 9892d825ce404170b1523abddd50005c
+2026-02-21 16:28:43,383 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:28:43,386 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:28:43,390 [INFO] junos-bridge: Discovered 11 devices: ['P11', 'P12', 'P13', 'P14', 'P21', 'P22', 'P23', 'P24', 'PE1', 'PE2', 'PE3']
+2026-02-21 16:29:14,649 [INFO] junos-bridge: Facts cache expired (age=60009s > TTL=14400s)
+2026-02-21 16:29:14,651 [INFO] junos-bridge: Background health poll started (every 300s)
+2026-02-21 16:29:14,658 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:29:14,659 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:29:44,666 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:29:44,667 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:30:28,159 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 16:30:28,160 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 16:30:28,162 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 16:30:58,360 [ERROR] junos-bridge: MCP connection failed: 
+2026-02-21 16:33:27,817 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 16:33:27,818 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 16:33:27,822 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 16:33:27,952 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:33:27,953 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 202 Accepted"
+2026-02-21 16:33:27,954 [INFO] junos-bridge: MCP session established: 4d9e934449604ca88fdc031dca9b244f
+2026-02-21 16:33:27,955 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:33:27,956 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:33:27,958 [INFO] junos-bridge: Discovered 11 devices: ['P11', 'P12', 'P13', 'P14', 'P21', 'P22', 'P23', 'P24', 'PE1', 'PE2', 'PE3']
+2026-02-21 16:33:41,749 [INFO] junos-bridge: Facts cache expired (age=60276s > TTL=14400s)
+2026-02-21 16:33:41,751 [INFO] junos-bridge: Background health poll started (every 300s)
+2026-02-21 16:33:41,755 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:33:41,755 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:33:41,755 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:34:11,763 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:36:11,799 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:36:11,800 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:36:11,800 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:39:23,788 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 16:39:23,789 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 16:39:23,796 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 16:39:53,954 [ERROR] junos-bridge: MCP connection failed: 
+2026-02-21 16:40:43,757 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 16:40:43,759 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 16:40:43,764 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 16:40:43,881 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:40:43,882 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 202 Accepted"
+2026-02-21 16:40:43,882 [INFO] junos-bridge: MCP session established: 0d3e75d263874574af99a139ddc4a81c
+2026-02-21 16:40:43,883 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:40:43,885 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:40:43,886 [INFO] junos-bridge: Discovered 11 devices: ['P11', 'P12', 'P13', 'P14', 'P21', 'P22', 'P23', 'P24', 'PE1', 'PE2', 'PE3']
+2026-02-21 16:48:09,134 [INFO] junos-bridge: Background health poll started (every 300s)
+2026-02-21 16:50:57,063 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 16:50:57,064 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 16:50:57,067 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 16:50:57,191 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:50:57,191 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 202 Accepted"
+2026-02-21 16:50:57,192 [INFO] junos-bridge: MCP session established: 720a4ade1ca04072a209124533d77812
+2026-02-21 16:50:57,193 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:50:57,194 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:50:57,197 [INFO] junos-bridge: Discovered 11 devices: ['P11', 'P12', 'P13', 'P14', 'P21', 'P22', 'P23', 'P24', 'PE1', 'PE2', 'PE3']
+2026-02-21 16:51:28,382 [INFO] junos-bridge: Background health poll started (every 300s)
+2026-02-21 16:55:43,373 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 16:55:43,374 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 16:55:43,377 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 16:55:43,600 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:55:43,602 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 202 Accepted"
+2026-02-21 16:55:43,602 [INFO] junos-bridge: MCP session established: ff5f876b90d74c15af806ad0e4479bd7
+2026-02-21 16:55:43,603 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:55:43,605 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:55:43,607 [INFO] junos-bridge: Discovered 11 devices: ['P11', 'P12', 'P13', 'P14', 'P21', 'P22', 'P23', 'P24', 'PE1', 'PE2', 'PE3']
+2026-02-21 16:57:09,207 [INFO] junos-bridge: Facts cache expired (age=61684s > TTL=14400s)
+2026-02-21 16:57:09,209 [INFO] junos-bridge: Background health poll started (every 300s)
+2026-02-21 16:57:09,217 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:57:09,218 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:57:09,218 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:57:09,219 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:59:39,261 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:59:39,261 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 16:59:39,261 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:15:09,243 [INFO] junos-bridge: Batch command: Interfaces → show interfaces terse on 11 routers
+2026-02-21 17:15:09,246 [INFO] junos-bridge: Batch command: Interface Detail → show interfaces detail | no-more on 11 routers
+2026-02-21 17:16:39,580 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:16:39,581 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:17:09,249 [WARNING] junos-bridge: Batch Interfaces: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:17:09,254 [WARNING] junos-bridge: Batch Interface Detail: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:19:09,640 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:19:09,643 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:19:12,262 [ERROR] junos-bridge: Batch Interfaces: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:19:12,263 [ERROR] junos-bridge: Batch Interface Detail: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:19:12,264 [INFO] junos-bridge: Batch command: Alarms → show chassis alarms on 11 routers
+2026-02-21 17:19:12,266 [INFO] junos-bridge: Batch command: Uptime → show system uptime on 11 routers
+2026-02-21 17:21:09,672 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:21:09,675 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:21:12,239 [WARNING] junos-bridge: Batch Alarms: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:21:12,244 [WARNING] junos-bridge: Batch Uptime: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:22:09,713 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:22:09,714 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:22:39,744 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:23:15,246 [ERROR] junos-bridge: Batch Alarms: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:23:15,246 [INFO] junos-bridge: Batch command: Storage → show system storage on 11 routers
+2026-02-21 17:23:15,247 [ERROR] junos-bridge: Batch Uptime: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:23:15,248 [INFO] junos-bridge: Batch command: Core Dumps → show system core-dumps on 11 routers
+2026-02-21 17:25:09,850 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:25:09,852 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:25:15,248 [WARNING] junos-bridge: Batch Storage: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:25:15,250 [WARNING] junos-bridge: Batch Core Dumps: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:25:39,873 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:25:39,874 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:25:39,881 [INFO] junos-bridge: Batch Core Dumps: success (3389 chars, 144.6s)
+2026-02-21 17:25:39,882 [INFO] junos-bridge: Batch command: OSPF Neighbors → show ospf neighbor on 11 routers
+2026-02-21 17:25:39,888 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:25:39,892 [INFO] junos-bridge: Batch OSPF Neighbors: success (3374 chars, 0.0s)
+2026-02-21 17:25:39,893 [INFO] junos-bridge: Batch command: OSPF Interfaces → show ospf interface on 11 routers
+2026-02-21 17:25:39,895 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:26:09,882 [INFO] junos-bridge: Batch OSPF Interfaces: success (3384 chars, 30.0s)
+2026-02-21 17:26:09,882 [INFO] junos-bridge: Batch command: BGP Summary → show bgp summary on 11 routers
+2026-02-21 17:26:09,885 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:26:09,892 [INFO] junos-bridge: Batch BGP Summary: success (3384 chars, 0.0s)
+2026-02-21 17:26:09,893 [INFO] junos-bridge: Batch command: ISIS → show isis adjacency on 11 routers
+2026-02-21 17:26:09,894 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:26:39,897 [INFO] junos-bridge: Batch ISIS: success (3384 chars, 30.0s)
+2026-02-21 17:26:39,898 [INFO] junos-bridge: Batch command: Route Summary → show route summary on 11 routers
+2026-02-21 17:26:39,900 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:26:39,904 [INFO] junos-bridge: Batch Route Summary: success (3384 chars, 0.0s)
+2026-02-21 17:26:39,904 [INFO] junos-bridge: Batch command: MPLS → show mpls interface on 11 routers
+2026-02-21 17:26:39,906 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:09,900 [INFO] junos-bridge: Batch MPLS: success (3371 chars, 30.0s)
+2026-02-21 17:27:09,900 [INFO] junos-bridge: Batch command: LDP Neighbors → show ldp neighbor on 11 routers
+2026-02-21 17:27:09,904 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:09,915 [INFO] junos-bridge: Batch LDP Neighbors: success (3382 chars, 0.0s)
+2026-02-21 17:27:09,916 [INFO] junos-bridge: Batch command: LDP Sessions → show ldp session on 11 routers
+2026-02-21 17:27:09,918 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:18,254 [ERROR] junos-bridge: Batch Storage: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:27:18,255 [INFO] junos-bridge: Batch command: LLDP → show lldp neighbors on 11 routers
+2026-02-21 17:27:18,258 [INFO] junos-bridge: Batch LDP Sessions: success (140 chars, 8.3s)
+2026-02-21 17:27:18,258 [INFO] junos-bridge: Batch command: NTP → show ntp associations no-resolve on 11 routers
+2026-02-21 17:27:18,262 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:18,263 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:39,902 [INFO] junos-bridge: Batch LLDP: success (3384 chars, 21.6s)
+2026-02-21 17:27:39,903 [INFO] junos-bridge: Batch command: BFD → show bfd session on 11 routers
+2026-02-21 17:27:39,906 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:39,921 [INFO] junos-bridge: Batch BFD: success (3382 chars, 0.0s)
+2026-02-21 17:27:39,922 [INFO] junos-bridge: Batch command: Firewall → show firewall on 11 routers
+2026-02-21 17:27:39,924 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:39,930 [INFO] junos-bridge: Batch Firewall: success (3381 chars, 0.0s)
+2026-02-21 17:27:39,930 [INFO] junos-bridge: Batch command: MPLS LSP → show mpls lsp on 11 routers
+2026-02-21 17:27:39,931 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:27:48,276 [INFO] junos-bridge: Batch MPLS LSP: success (3397 chars, 8.3s)
+2026-02-21 17:27:48,277 [INFO] junos-bridge: Batch command: RSVP → show rsvp session on 11 routers
+2026-02-21 17:27:48,278 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:28:09,935 [INFO] junos-bridge: Batch RSVP: success (3384 chars, 21.7s)
+2026-02-21 17:28:09,936 [INFO] junos-bridge: Batch command: Commits → show system commit on 11 routers
+2026-02-21 17:28:09,939 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:28:18,280 [INFO] junos-bridge: Batch Commits: success (3374 chars, 8.3s)
+2026-02-21 17:28:18,281 [INFO] junos-bridge: Batch command: Route Instances → show route instance summary on 11 routers
+2026-02-21 17:28:18,284 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:28:39,933 [INFO] junos-bridge: Batch Route Instances: success (3380 chars, 21.7s)
+2026-02-21 17:28:39,934 [INFO] junos-bridge: Batch command: RE Stats → show chassis routing-engine on 11 routers
+2026-02-21 17:28:39,936 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:28:39,950 [INFO] junos-bridge: Batch RE Stats: success (3383 chars, 0.0s)
+2026-02-21 17:28:39,951 [INFO] junos-bridge: Batch command: Environment → show chassis environment on 11 routers
+2026-02-21 17:28:39,953 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:28:48,297 [INFO] junos-bridge: Batch Environment: success (3392 chars, 8.3s)
+2026-02-21 17:28:48,298 [INFO] junos-bridge: Batch command: FPC Status → show chassis fpc on 11 routers
+2026-02-21 17:28:48,299 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:29:09,233 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:29:18,261 [WARNING] junos-bridge: Batch NTP: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:29:39,252 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:29:39,253 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:30:09,272 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:30:39,285 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:30:48,298 [WARNING] junos-bridge: Batch FPC Status: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:31:09,294 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:31:09,295 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:31:21,271 [ERROR] junos-bridge: Batch NTP: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:31:21,272 [INFO] junos-bridge: Batch command: FW Config → show configuration firewall on 11 routers
+2026-02-21 17:31:39,324 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:31:39,325 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:32:51,303 [ERROR] junos-bridge: Batch FPC Status: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:32:51,304 [INFO] junos-bridge: Batch command: L3VPN Routes → show route table bgp.l3vpn.0 summary on 11 routers
+2026-02-21 17:32:51,306 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:33:21,274 [WARNING] junos-bridge: Batch FW Config: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:33:21,278 [INFO] junos-bridge: Batch L3VPN Routes: success (140 chars, 30.0s)
+2026-02-21 17:33:24,283 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:33:54,300 [INFO] junos-bridge: Batch FW Config: success (3392 chars, 153.0s)
+2026-02-21 17:33:54,308 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:33:55,035 [INFO] junos-bridge: Loaded Junos command dictionary: 181 show commands, 84 set commands
+2026-02-21 17:33:55,035 [INFO] junos-bridge: Loaded expert examples: 22125 chars
+2026-02-21 17:33:55,040 [INFO] junos-bridge: Loaded Junos deep knowledge: 35046 chars
+2026-02-21 17:33:55,043 [INFO] junos-bridge: Migrated old session_history.json → conv_1771681194
+2026-02-21 17:34:24,318 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:34:24,319 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:35:24,338 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:35:24,340 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:35:54,349 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:36:54,367 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:37:24,383 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:37:24,384 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:37:54,393 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:39:24,362 [INFO] junos-bridge: LLDP topology: parsed 0 links from 11 router outputs
+2026-02-21 17:39:24,364 [WARNING] junos-bridge: LLDP parse: 0 links from P11, sample output: Connection error to P11: ConnectTimeoutError(66.129.234.209)
+2026-02-21 17:39:24,364 [WARNING] junos-bridge: LLDP parse: 0 links from P12, sample output: Connection error to P12: ConnectTimeoutError(66.129.234.209)
+2026-02-21 17:39:24,364 [INFO] junos-bridge: Fallback topology: built 0 links from OSPF/BGP/LDP/IS-IS data
+2026-02-21 17:39:24,367 [INFO] junos-bridge: Batch command: DD OSPF Cfg → show configuration protocols ospf on 11 routers
+2026-02-21 17:39:24,368 [INFO] junos-bridge: Batch command: DD OSPF Nbr Det → show ospf neighbor detail on 11 routers
+2026-02-21 17:40:54,455 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:40:54,457 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:41:24,370 [WARNING] junos-bridge: Batch DD OSPF Cfg: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:41:24,373 [WARNING] junos-bridge: Batch DD OSPF Nbr Det: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:42:24,507 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:42:24,508 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:42:24,519 [INFO] junos-bridge: Batch DD OSPF Nbr Det: success (60 chars, 180.2s)
+2026-02-21 17:42:24,520 [INFO] junos-bridge: Batch command: DD BGP Cfg → show configuration protocols bgp on 11 routers
+2026-02-21 17:42:24,527 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:42:54,547 [INFO] junos-bridge: Batch DD BGP Cfg: success (3389 chars, 30.0s)
+2026-02-21 17:42:54,548 [INFO] junos-bridge: Batch command: DD LDP Cfg → show configuration protocols ldp on 11 routers
+2026-02-21 17:42:54,553 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:43:24,539 [INFO] junos-bridge: Batch DD LDP Cfg: success (3393 chars, 30.0s)
+2026-02-21 17:43:24,540 [INFO] junos-bridge: Batch command: DD OSPF Routes → show route protocol ospf on 11 routers
+2026-02-21 17:43:24,542 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:43:24,565 [INFO] junos-bridge: Batch DD OSPF Routes: success (3397 chars, 0.0s)
+2026-02-21 17:43:24,565 [INFO] junos-bridge: Batch command: DD OSPF LSDB → show ospf database on 11 routers
+2026-02-21 17:43:24,566 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:43:27,376 [ERROR] junos-bridge: Batch DD OSPF Cfg: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:43:27,376 [INFO] junos-bridge: Batch command: DD Policy → show configuration policy-options on 11 routers
+2026-02-21 17:43:27,378 [INFO] junos-bridge: Batch DD OSPF LSDB: success (140 chars, 2.8s)
+2026-02-21 17:43:27,381 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:43:54,559 [INFO] junos-bridge: Batch DD Policy: success (3389 chars, 27.2s)
+2026-02-21 17:43:54,561 [INFO] junos-bridge: Batch command: E43 show bgp group summary → show bgp group summary on 3 routers
+2026-02-21 17:43:54,566 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:43:54,574 [INFO] junos-bridge: Batch E43 show bgp group summary: success (3383 chars, 0.0s)
+2026-02-21 17:43:54,575 [INFO] junos-bridge: Batch command: E43 show evpn instance → show evpn instance on 3 routers
+2026-02-21 17:43:54,577 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:43:57,397 [INFO] junos-bridge: Batch E43 show evpn instance: success (3398 chars, 2.8s)
+2026-02-21 17:43:57,398 [INFO] junos-bridge: Batch command: E43 show route instance summary → show route instance summary on 3 routers
+2026-02-21 17:43:57,402 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:44:24,583 [INFO] junos-bridge: Batch E43 show route instance summary: success (1049 chars, 27.2s)
+2026-02-21 17:44:24,584 [INFO] junos-bridge: Batch command: E43 show services l2circuit connec → show services l2circuit connections summary on 3 routers
+2026-02-21 17:44:24,592 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:44:27,414 [INFO] junos-bridge: Batch E43 show services l2circuit connec: success (1054 chars, 2.8s)
+2026-02-21 17:44:27,415 [INFO] junos-bridge: Batch command: E43 show ted database → show ted database on 8 routers
+2026-02-21 17:44:27,418 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:44:54,609 [INFO] junos-bridge: Batch E43 show ted database: success (1070 chars, 27.2s)
+2026-02-21 17:44:54,613 [INFO] junos-bridge: Batch command: EVPN Instance → show evpn instance on 11 routers
+2026-02-21 17:44:54,614 [INFO] junos-bridge: Batch command: VPLS → show vpls connections on 11 routers
+2026-02-21 17:44:54,619 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:44:54,623 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:44:57,439 [INFO] junos-bridge: Batch VPLS: success (2503 chars, 2.8s)
+2026-02-21 17:44:57,440 [INFO] junos-bridge: Batch command: L2Circuit → show l2circuit connections on 11 routers
+2026-02-21 17:44:57,444 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:45:09,270 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:45:39,279 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:46:09,295 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:46:39,310 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:46:54,627 [WARNING] junos-bridge: Batch EVPN Instance: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:46:57,443 [WARNING] junos-bridge: Batch L2Circuit: attempt 1 timed out (120.0s), retrying in 3.0s...
+2026-02-21 17:47:09,331 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:47:09,332 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:47:09,332 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:47:39,363 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:48:57,637 [ERROR] junos-bridge: Batch EVPN Instance: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:49:00,452 [ERROR] junos-bridge: Batch L2Circuit: FAILED after 1 retries (Timeout after 120.0s)
+2026-02-21 17:49:01,432 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 17:49:01,516 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 17:49:01,915 [INFO] junos-bridge: Specialist call: 6967 chars prompt, 12321 chars data (with expert example)
+2026-02-21 17:53:09,911 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:53:21,968 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 17:53:21,980 [INFO] junos-bridge: Specialist response: 21 chars (attempt 1)
+2026-02-21 17:53:40,560 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:54:10,848 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:54:41,017 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:55:11,375 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 17:55:41,939 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:01:11,445 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:01:41,802 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:02:12,572 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:02:43,065 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:03:14,202 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:03:22,085 [WARNING] junos-bridge: Ollama timeout attempt 1/3: 
+2026-02-21 18:03:44,515 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:04:56,199 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:04:56,312 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 18:04:57,140 [INFO] junos-bridge: Specialist call: 6731 chars prompt, 1738 chars data (with expert example)
+2026-02-21 18:04:57,749 [INFO] junos-bridge: Specialist call: 4485 chars prompt, 3036 chars data (with expert example)
+2026-02-21 18:04:58,391 [INFO] junos-bridge: Specialist call: 4354 chars prompt, 1089 chars data (with expert example)
+2026-02-21 18:04:58,742 [INFO] junos-bridge: Specialist call: 6467 chars prompt, 2321 chars data (with expert example)
+2026-02-21 18:05:43,895 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:05:43,909 [INFO] junos-bridge: Specialist response: 17 chars (attempt 1)
+2026-02-21 18:08:41,304 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:08:41,326 [INFO] junos-bridge: Specialist response: 17 chars (attempt 1)
+2026-02-21 18:09:11,965 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:09:42,243 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:10:12,434 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:10:42,512 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:10:52,956 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:10:52,963 [INFO] junos-bridge: Specialist response: 158 chars (attempt 1)
+2026-02-21 18:11:12,642 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:11:42,782 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:14:58,937 [WARNING] junos-bridge: Ollama timeout attempt 1/3: 
+2026-02-21 18:15:44,034 [WARNING] junos-bridge: Ollama timeout attempt 1/3: 
+2026-02-21 18:17:12,945 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:17:29,441 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:17:29,561 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 18:17:43,393 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:18:13,816 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:18:44,109 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:19:14,440 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:19:43,380 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:19:43,507 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 18:19:44,827 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:25:14,010 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:25:44,258 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:26:14,485 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:26:44,643 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:27:14,780 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:27:45,031 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:30:01,910 [WARNING] junos-bridge: Ollama timeout attempt 2/3: 
+2026-02-21 18:30:46,258 [WARNING] junos-bridge: Ollama timeout attempt 2/3: 
+2026-02-21 18:33:14,666 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:33:45,094 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:34:18,313 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:34:48,684 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:35:18,924 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:35:49,083 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:36:22,800 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:36:22,827 [INFO] junos-bridge: Specialist response: 135 chars (attempt 1)
+2026-02-21 18:38:24,743 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:38:24,773 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 18:39:39,512 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 18:39:39,617 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 18:39:40,413 [INFO] junos-bridge: Specialist call: 6096 chars prompt, 1016 chars data (with expert example)
+2026-02-21 18:41:15,571 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:41:45,871 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:42:16,076 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:42:46,276 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:43:17,308 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:43:47,511 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:49:16,860 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:49:40,933 [WARNING] junos-bridge: Ollama timeout attempt 1/3: 
+2026-02-21 18:49:47,024 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:50:17,213 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:50:47,331 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:51:17,440 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:51:47,582 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:57:18,187 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:57:48,692 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:58:19,010 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:58:49,371 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:59:19,575 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 18:59:49,827 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:04:43,218 [WARNING] junos-bridge: Ollama timeout attempt 2/3: 
+2026-02-21 19:05:18,624 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:05:48,876 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:06:19,044 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:06:49,188 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:07:19,456 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:07:49,839 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:13:19,312 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:13:49,670 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:14:19,748 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:14:49,811 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:14:53,418 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:14:53,427 [INFO] junos-bridge: Specialist response: 1638 chars (attempt 1)
+2026-02-21 19:15:19,906 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:15:50,020 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:16:01,340 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:16:01,356 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 19:16:01,865 [INFO] junos-bridge: Specialist call: 4472 chars prompt, 2013 chars data
+2026-02-21 19:16:02,038 [INFO] junos-bridge: Specialist call: 5056 chars prompt, 3036 chars data (with expert example)
+2026-02-21 19:16:40,833 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:16:40,843 [INFO] junos-bridge: Specialist response: 17 chars (attempt 1)
+2026-02-21 19:18:07,154 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:18:07,158 [INFO] junos-bridge: Specialist response: 162 chars (attempt 1)
+2026-02-21 19:18:41,203 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:18:41,211 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 19:19:18,536 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:19:18,546 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 19:19:19,255 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:19:19,384 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:19:19,523 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:19:19,613 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:19:19,840 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:19:19,960 [INFO] junos-bridge: Specialist call: 6559 chars prompt, 1738 chars data (with expert example)
+2026-02-21 19:19:19,969 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:19:20,090 [INFO] junos-bridge: Specialist call: 6301 chars prompt, 1947 chars data (with expert example)
+2026-02-21 19:20:36,614 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:20:36,627 [INFO] junos-bridge: Specialist response: 279 chars (attempt 1)
+2026-02-21 19:21:00,411 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:21:00,414 [INFO] junos-bridge: Specialist response: 17 chars (attempt 1)
+2026-02-21 19:21:13,557 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:21:13,563 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 19:21:19,553 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:21:30,017 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:21:30,023 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 19:21:30,423 [INFO] junos-bridge: Specialist call: 6243 chars prompt, 4603 chars data (with expert example)
+2026-02-21 19:21:49,630 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:22:19,823 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:22:49,844 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:23:19,872 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:23:49,936 [INFO] httpx: HTTP Request: POST http://127.0.0.1:30030/mcp/ "HTTP/1.1 200 OK"
+2026-02-21 19:25:49,259 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:25:49,265 [INFO] junos-bridge: Specialist response: 2837 chars (attempt 1)
+2026-02-21 19:27:14,637 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-21 19:27:14,642 [INFO] junos-bridge: Specialist confidence 50% < 70% — flagging
+2026-02-21 19:27:15,619 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:27:15,778 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:27:15,912 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-02-21 19:27:16,115 [INFO] junos-bridge: Facts cache save: skipping 11 placeholder entries
+2026-02-21 19:27:16,115 [INFO] junos-bridge: Facts cache save: no real facts to cache, skipping write

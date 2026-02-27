@@ -1,0 +1,13 @@
+{
+  "saved_at": "2026-02-21T17:33:55.045649",
+  "messages": [
+    {
+      "role": "user",
+      "content": "check ospf neighbors on PE1"
+    },
+    {
+      "role": "assistant",
+      "content": "PE1 has 3 OSPF neighbors in Full state."
+    }
+  ]
+}

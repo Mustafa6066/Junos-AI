@@ -1,0 +1,299 @@
+# ═══════════════════════════════════════════════════════════════════
+#  Junos AI Network Operations Center — Configuration File v20.0
+# ═══════════════════════════════════════════════════════════════════
+# All tunable settings in one place. No need to edit Python code.
+# v20.0: Feedback Learning Engine + Conversation Memory + Brain-Analyzed Corrections
+# v19.0: Claude Code Terminal UI + Live Action Plans + Todo Tracker
+# v17.0: Hypered Brain + parallel smart scripts + self-validation loop
+# v16.0: Network analysis engine + packet capture + DNS intel + security audit
+# v15.0: Hypothesis engine + chain-of-thought + topology intel + scripts
+# v14.0: Claude Opus-level Junos intelligence + topology viz + mind-map
+# v13.1: Workflow orchestration + self-improvement loop
+# v13.0: GPT-OSS model + structured reasoning + expert examples
+
+# ── MCP Server Connection ────────────────────────────────────────
+mcp:
+  url: "http://127.0.0.1:30030/mcp/"
+  batch_concurrency: 2        # Max simultaneous batch commands
+  call_timeout: 120.0         # Per-call timeout (seconds)
+  batch_retry: 1              # Retry failed batches N times
+  batch_retry_delay: 3.0      # Seconds between retries
+  max_response_chars: 500000  # Truncate responses larger than this
+
+# ── AI Model Settings ───────────────────────────────────────────
+ai:
+  model: "gpt-oss"
+  ollama_url: "http://127.0.0.1:11434"
+  context_window: 32768       # NUM_CTX tokens
+  max_context_usage: 0.80     # Trim history at 80% utilization
+  chars_per_token: 4          # Approximate chars-per-token
+  self_verify: true           # AI self-verification loop (GPT-OSS is powerful enough)
+  max_tool_rounds: 15         # Max AI tool-calling rounds per query (GPT-OSS can handle deeper chains)
+  temperature: 0.12           # Low = precise/deterministic (GPT-OSS responds well to low temp)
+  top_p: 0.9                  # Nucleus sampling — keeps output focused
+  repeat_penalty: 1.1         # Discourage repetitive output
+  tool_result_max_chars: 8000 # Smart truncation limit (GPT-OSS handles more context)
+  # v13.0: Advanced reasoning settings
+  structured_reasoning: true  # Enable multi-step reasoning chains for complex queries
+  confidence_threshold: 70    # Minimum confidence % before escalation/retry
+  expert_examples: true       # Inject protocol-specific troubleshooting examples via RAG
+  output_verification: true   # Verify AI output for Junos command correctness
+  command_dictionary: true    # Validate commands against junos_commands.json
+  # v14.0: Deep reasoning settings
+  deep_reasoning: true        # Enable mind-map reasoning for ultra-complex queries
+  fsm_diagnosis: true         # Use protocol state machines for deterministic diagnosis
+  cascade_detection: true     # Detect cascading failure chains automatically
+  topology_visualization: true # Generate live topology from iBGP+LLDP+IS-IS
+
+# ── v17.0: Hypered Brain Engine ─────────────────────────────────
+hypered_brain:
+  confidence_threshold: 70    # Minimum confidence % before accepting analysis (lower = faster)
+  max_passes: 3               # Maximum validation passes (1=no validation, 3=thorough)
+  max_concurrent_scripts: 3   # Parallel script workers (2-5, higher = faster but more load)
+  max_scripts_per_pass: 8     # Max scripts selected per perception pass
+  script_timeout: 60          # Per-script execution timeout (seconds)
+  enable_follow_up: true      # Auto-trigger deep-dive scripts when anomalies found
+  save_reports: true          # Save brain analysis reports to files
+
+# ── Health Thresholds ───────────────────────────────────────────
+thresholds:
+  crc_errors_per_audit: 10
+  crc_error_rate: 10
+  input_errors_per_audit: 50
+  carrier_transitions: 10
+  storage_pct_warning: 80
+  storage_pct: 80
+  storage_pct_critical: 95
+  route_count_min_inet0: 2
+  route_table_max: 1000000
+  uptime_crash_threshold_hours: 24
+  uptime_min_hours: 24
+  bgp_prefix_warning_ratio: 0.9
+  bgp_prefix_deviation_pct: 20
+  ospf_dead_interval_max: 120
+  # v10.0 new thresholds
+  interface_utilization_warning: 80    # % bandwidth utilization
+  interface_utilization_critical: 95
+  bgp_flap_threshold: 5               # Flaps per hour
+  memory_utilization_warning: 80       # RE memory %
+  cpu_utilization_warning: 80          # RE CPU %
+
+# ── v15.0 Reasoning Engine Settings ────────────────────────────
+reasoning:
+  auto_classify: true           # Auto-classify queries using reasoning engine
+  hypothesis_max: 5             # Max hypotheses to generate per investigation
+  evidence_threshold: 0.85      # Confidence threshold to declare root cause
+  cascade_detection: true       # Enable cascading failure chain detection
+  topology_intel: true          # Enable TopologyIntelligence for topology commands
+  script_templates: true        # Enable Junos script template library
+  auto_mind_map_threshold: "complex"  # Auto-trigger mind-map for this complexity+
+
+# ── Compliance Checks (E49 — expanded to 20+) ──────────────────
+compliance:
+  checks:
+    - id: ntp
+      label: "NTP Configured"
+      command: "show ntp associations no-resolve"
+      pass_if_present: "\\d+\\.\\d+\\.\\d+\\.\\d+"
+    - id: syslog
+      label: "Syslog Configured"
+      command: "show configuration system syslog"
+      pass_if_present: "host|file"
+    - id: snmp
+      label: "SNMP Configured"
+      command: "show configuration snmp"
+      pass_if_present: "community|v3"
+    - id: ssh_only
+      label: "SSH Only (No Telnet)"
+      command: "show configuration system services"
+      pass_if_present: "ssh"
+    - id: login_banner
+      label: "Login Banner Set"
+      command: "show configuration system login message"
+      pass_if_present: ".{10,}"
+    - id: rescue
+      label: "Rescue Config Saved"
+      command: "show system storage"
+      pass_if_present: "rescue"
+    - id: lldp
+      label: "LLDP Enabled"
+      command: "show lldp"
+      pass_if_present: "enabled|Enabled"
+    - id: root_auth
+      label: "Root Authentication Set"
+      command: "show configuration system root-authentication"
+      pass_if_present: "encrypted-password|ssh-rsa"
+    # v10.0 new compliance checks (E49)
+    - id: ssh_v2
+      label: "SSH Protocol v2 Only"
+      command: "show configuration system services ssh"
+      pass_if_present: "protocol-version v2"
+    - id: console_timeout
+      label: "Console Timeout Configured"
+      command: "show configuration system login"
+      pass_if_present: "idle-timeout"
+    - id: password_min_length
+      label: "Password Min Length Set"
+      command: "show configuration system login password"
+      pass_if_present: "minimum-length"
+    - id: re_protection
+      label: "RE Protection Filter on lo0"
+      command: "show configuration interfaces lo0 unit 0 family inet filter"
+      pass_if_present: "input"
+    - id: snmp_no_public
+      label: "SNMP Community Not 'public'"
+      command: "show configuration snmp community"
+      pass_if_present: "(?!public)"
+      fail_if_present: "^\\s*public\\s"
+    - id: ospf_auth
+      label: "OSPF Authentication Configured"
+      command: "show configuration protocols ospf"
+      pass_if_present: "authentication-key|md5|ipsec-sa"
+    - id: bgp_auth
+      label: "BGP Authentication Configured"
+      command: "show configuration protocols bgp"
+      pass_if_present: "authentication-key|authentication-algorithm"
+    - id: storm_control
+      label: "Storm Control on Edge Interfaces"
+      command: "show configuration forwarding-options storm-control"
+      pass_if_present: "bandwidth-level|bandwidth-percentage"
+    - id: dual_syslog
+      label: "Multiple Syslog Servers"
+      command: "show configuration system syslog"
+      pass_if_present: "host.*host|host.*\\n.*host"
+    - id: netconf
+      label: "NETCONF over SSH Enabled"
+      command: "show configuration system services netconf"
+      pass_if_present: "ssh"
+    - id: commit_sync
+      label: "Commit Synchronize (Dual RE)"
+      command: "show configuration system"
+      pass_if_present: "commit synchronize"
+    - id: dns_configured
+      label: "DNS Name Servers Set"
+      command: "show configuration system name-server"
+      pass_if_present: "\\d+\\.\\d+\\.\\d+\\.\\d+"
+
+# ── Smart Command Selection per Device Role (E43) ──────────────
+device_roles:
+  pe:
+    prefix: "PE"
+    extra_commands:
+      - "show route instance summary"
+      - "show bgp group summary"
+      - "show services l2circuit connections summary"
+      - "show evpn instance"
+  p:
+    prefix: "P"
+    exclude_prefix: "PE"
+    extra_commands:
+      - "show ted database"
+  rr:
+    prefix: "RR"
+    extra_commands:
+      - "show bgp group summary"
+      - "show route receive-protocol bgp summary"
+
+# ── Report Settings ─────────────────────────────────────────────
+report:
+  output_dir: "."
+  formats:
+    - markdown
+    - html
+  include_topology: true
+  max_evidence_lines: 20      # Max raw output lines per evidence block
+  itil_alignment: true        # Add ITIL priority codes to findings
+
+# ── Persistence Paths ───────────────────────────────────────────
+paths:
+  golden_configs: "golden_configs"
+  session_history: "session_history.json"
+  issue_fingerprints: "issue_fingerprints.json"
+  intf_error_history: "intf_error_history.json"
+  resolution_db: "resolution_db.json"    # E44: Self-learning fix database
+  audit_db: "audit_history.db"           # E56: SQLite audit database
+  baselines: "baselines.json"            # E71: Baseline anomaly detection
+  logs: "logs"
+
+# ── v11.0: Change Management ───────────────────────────────────
+change_management:
+  # E91: Change window enforcement
+  change_windows:
+    weekday_start: 22           # 24h format — allowed start hour on weekdays
+    weekday_end: 6              # Allowed end hour on weekdays
+    weekend_allowed: true       # Allow changes all day on weekends
+    business_hours_start: 9
+    business_hours_end: 17
+  # E85: Commit confirmed settings
+  commit_confirmed_minutes: 5   # Auto-rollback if not confirmed within N minutes
+  # E87: Pre/post state capture
+  pre_post_state_capture: true  # Capture protocol state before & after config push
+  # E86: Auto-rollback on verification failure
+  auto_rollback_on_failure: false  # Set true to auto-rollback without asking
+
+# ── v11.0: Dependency Graph & Intelligence ─────────────────────
+intelligence:
+  # E68: Network dependency graph
+  dependency_graph: true        # Build topology dependency graph during audit
+  # E71: Baseline anomaly detection
+  baseline_detection: true      # Compare current metrics against saved baselines
+  baseline_deviation_pct: 25    # % deviation threshold to flag anomaly
+  # E94: Quantified risk scoring
+  risk_scoring: true            # Calculate per-finding risk scores
+  # E96: SLA impact estimation
+  sla_estimation: true          # Estimate SLA impact from findings
+  default_sla_target: 99.99     # Default SLA target (%)
+  # E69: Root cause chain analysis
+  root_cause_chains: true       # Build multi-hop root cause chains
+  # E93: Dynamic bottom line
+  dynamic_bottom_line: true     # Enrich bottom line with risk/SLA data
+
+# ── v16.0: Network Analysis Engine ────────────────────────────
+network_analysis:
+  # E139: Packet Capture Intelligence
+  capture:
+    default_count: 25           # Default packet count for captures
+    default_duration: 10        # Default capture duration (seconds)
+    default_detail: "brief"     # brief, detail, extensive
+    max_count: 100              # Max packets per capture
+  
+  # E140: DNS Intelligence
+  dns:
+    default_record_type: "A"    # Default DNS record type
+    trace_enabled: true         # Enable DNS trace functionality
+  
+  # E141: Security Audit Engine
+  security:
+    auto_remediate: false       # Never auto-push security fixes
+    checks_enabled: true        # Enable security audit checks
+    report_format: "markdown"   # markdown or json
+    credential_scan: true       # Check for weak/default credentials
+  
+  # E143: Alert & Threshold Engine
+  alerts:
+    enabled: true               # Enable alert monitoring
+    check_interval_min: 5       # How often to check (minutes)
+    history_retention_hours: 24 # How long to keep alert history
+    auto_investigate: true      # Auto-trigger hypothesis engine on alert
+  
+  # E144: Log Forensics
+  forensics:
+    max_entries: 100            # Max log entries to analyze per device
+    correlation_window_sec: 300 # Time window for event correlation
+    scope_default: "all"        # Default forensic scope
+  
+  # E145: Device Profiler
+  profiler:
+    health_thresholds:
+      cpu_warning: 60           # CPU % to trigger warning
+      cpu_critical: 80          # CPU % to trigger critical
+      memory_warning: 70        # Memory % to trigger warning
+      memory_critical: 85       # Memory % to trigger critical
+      temperature_warning: 55   # Temperature °C to trigger warning
+      temperature_critical: 65  # Temperature °C to trigger critical
+  
+  # E146: Persistent Memory
+  memory:
+    db_path: "analysis_memory.db"
+    max_investigations: 1000    # Max stored investigations
+    context_recall: true        # Recall past investigations for new queries

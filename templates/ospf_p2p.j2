@@ -1,0 +1,11 @@
+{# OSPF Point-to-Point Interface Configuration Template #}
+{# Usage: Render with vars: interface_name, area_id, metric (optional), bfd (optional) #}
+
+set protocols ospf area {{ area_id | default("0.0.0.0") }} interface {{ interface_name }} interface-type p2p
+{% if metric is defined %}
+set protocols ospf area {{ area_id | default("0.0.0.0") }} interface {{ interface_name }} metric {{ metric }}
+{% endif %}
+{% if bfd | default(true) %}
+set protocols ospf area {{ area_id | default("0.0.0.0") }} interface {{ interface_name }} bfd-liveness-detection minimum-interval 300
+set protocols ospf area {{ area_id | default("0.0.0.0") }} interface {{ interface_name }} bfd-liveness-detection multiplier 3
+{% endif %}

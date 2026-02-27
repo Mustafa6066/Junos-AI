@@ -1,0 +1,37 @@
+# ── Security: Generated secrets ──
+web_ui/.secret_key
+
+# ── Python cache ──
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ── Databases (local state) ──
+*.db
+
+# ── Vector store cache ──
+kb_vectors.pkl
+
+# ── OS files ──
+.DS_Store
+._*
+~$*
+
+# ── IDE ──
+.vscode/
+.idea/
+
+# ── Node modules (test runner) ──
+node_modules/
+
+# ── Test artifacts ──
+golden_configs/NONEXISTENT*
+
+# ── Temp / lock files ──
+uv.lock
+
+# ── Sensitive device credentials ──
+junos-mcp-server/devices.json
+
+# ── Results / cache ──
+web_ui/results/

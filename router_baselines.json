@@ -1,0 +1,58 @@
+{
+  "P11": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "P12": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "P13": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "P14": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "P21": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "P22": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "P23": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "P24": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "PE1": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "PE2": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "PE3": {
+    "ospf_neighbors": 0.0,
+    "bgp_peers": 0.0,
+    "ldp_sessions": 0.0
+  },
+  "_updated_at": "2026-02-21T17:49:00.461355"
+}

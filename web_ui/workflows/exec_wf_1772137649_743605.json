@@ -1,0 +1,13 @@
+{
+  "name": "exec_wf_1772137649.743605",
+  "description": "exec test",
+  "steps": [
+    {
+      "type": "command",
+      "router": "PE1",
+      "command": "show version"
+    }
+  ],
+  "updated_at": "2026-02-26T22:27:29.743720",
+  "created_at": "2026-02-26T22:27:29.743723"
+}

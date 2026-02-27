@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junos AI NOC — Autonomous Network Intelligence v23.0</title>
+    <link rel="stylesheet" href="/static/css/fonts.css">
+    <link rel="stylesheet" href="/static/css/glass.css">
+    <link rel="stylesheet" href="/static/css/noc.css">
+    <script src="/static/js/lucide.min.js"></script>
+    <script src="/static/js/d3.v7.min.js"></script>
+    <script src="/static/js/socket.io.min.js"></script>
+</head>
+<body>
+
+<!-- ═══ Animated Glass Background ═══ -->
+<div class="glass-background" aria-hidden="true">
+    <div class="noise"></div>
+    <div class="glass-orb glass-orb-1" aria-hidden="true"></div>
+    <div class="glass-orb glass-orb-2" aria-hidden="true"></div>
+</div>
+
+<!-- ═══ Compact Agency Command Bar ═══ -->
+<header class="glass-header" id="mainHeader">
+    <div class="header-left">
+        <div class="header-logo">
+            <svg viewBox="0 0 32 32" class="logo-svg">
+                <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                <circle cx="16" cy="8" r="3" fill="currentColor"/>
+                <circle cx="8" cy="22" r="3" fill="currentColor"/>
+                <circle cx="24" cy="22" r="3" fill="currentColor"/>
+                <line x1="16" y1="11" x2="9.5" y2="19.5" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="16" y1="11" x2="22.5" y2="19.5" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="11" y1="22" x2="21" y2="22" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </div>
+        <div class="header-title">
+            <h1>Junos <span class="title-accent">AI</span></h1>
+        </div>
+        <div class="header-ai-badge">
+            <span class="ai-badge-dot"></span>
+            <span class="ai-badge-text">Autonomous</span>
+        </div>
+    </div>
+
+    <nav class="header-nav" id="mainNav">
+        <!-- Core Navigation - Pill Group -->
+        <div class="nav-pill-group">
+            <button class="nav-btn active" data-view="dashboard" onclick="switchView('dashboard')">
+                <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                <span class="nav-label">Overview</span>
+            </button>
+            <button class="nav-btn" data-view="topology" onclick="switchView('topology')">
+                <i data-lucide="network" class="nav-icon"></i>
+                <span class="nav-label">Topology</span>
+            </button>
+            <button class="nav-btn" data-view="ai-chat" onclick="switchView('ai-chat')">
+                <i data-lucide="bot" class="nav-icon"></i>
+                <span class="nav-label">Agent</span>
+            </button>
+        </div>
+
+        <div class="nav-separator"></div>
+
+        <!-- Dropdown: Intelligence -->
+        <div class="nav-dropdown" id="navAI">
+            <button class="nav-btn nav-dropdown-trigger" onclick="toggleNavDropdown('navAI')">
+                <i data-lucide="brain" class="nav-icon"></i>
+                <span class="nav-label">Intelligence</span>
+                <i data-lucide="chevron-down" class="nav-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu">
+                <div class="dropdown-header">AI Intelligence</div>
+                <button class="dropdown-item" data-view="investigate" onclick="switchView('investigate'); closeAllDropdowns()">
+                    <i data-lucide="search" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Investigate</span>
+                        <span class="dropdown-item-desc">Deep Brain-powered analysis</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="remediate" onclick="switchView('remediate'); closeAllDropdowns()">
+                    <i data-lucide="wrench" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Remediate</span>
+                        <span class="dropdown-item-desc">Propose, approve & deploy fixes</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="predictive" onclick="switchView('predictive'); closeAllDropdowns()">
+                    <i data-lucide="trending-up" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Predict</span>
+                        <span class="dropdown-item-desc">Failure analysis & ensemble</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="capacity" onclick="switchView('capacity'); closeAllDropdowns()">
+                    <i data-lucide="bar-chart-3" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Capacity Planning</span>
+                        <span class="dropdown-item-desc">What-if & growth analysis</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dropdown: Infrastructure -->
+        <div class="nav-dropdown" id="navInfra">
+            <button class="nav-btn nav-dropdown-trigger" onclick="toggleNavDropdown('navInfra')">
+                <i data-lucide="server" class="nav-icon"></i>
+                <span class="nav-label">Infrastructure</span>
+                <i data-lucide="chevron-down" class="nav-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu">
+                <div class="dropdown-header">Infrastructure</div>
+                <button class="dropdown-item" data-view="devices" onclick="switchView('devices'); closeAllDropdowns()">
+                    <i data-lucide="monitor" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Devices</span>
+                        <span class="dropdown-item-desc">Inventory & monitoring</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="pools" onclick="switchView('pools'); closeAllDropdowns()">
+                    <i data-lucide="layers" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Device Pools</span>
+                        <span class="dropdown-item-desc">Group by role or function</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="ping" onclick="switchView('ping'); closeAllDropdowns()">
+                    <i data-lucide="radio" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Ping & Reachability</span>
+                        <span class="dropdown-item-desc">ICMP testing via MCP</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="pathfinder" onclick="switchView('pathfinder'); closeAllDropdowns()">
+                    <i data-lucide="route" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Path Finder</span>
+                        <span class="dropdown-item-desc">IS-IS shortest path analysis</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="discovery" onclick="switchView('discovery'); closeAllDropdowns()">
+                    <i data-lucide="scan" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Discovery</span>
+                        <span class="dropdown-item-desc">LLDP / ARP neighbor mapping</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="traffic" onclick="switchView('traffic'); closeAllDropdowns()">
+                    <i data-lucide="activity" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Traffic Analysis</span>
+                        <span class="dropdown-item-desc">Protocol stats & flow inspection</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="security" onclick="switchView('security'); closeAllDropdowns()">
+                    <i data-lucide="shield-alert" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">Security Center</span>
+                        <span class="dropdown-item-desc">Threat detection & hardening</span>
+                    </div>
+                </button>
+                <button class="dropdown-item" data-view="dns" onclick="switchView('dns'); closeAllDropdowns()">
+                    <i data-lucide="globe" class="dropdown-icon"></i>
+                    <div class="dropdown-item-text">
+                        <span class="dropdown-item-title">DNS Diagnostics</span>
+                        <span class="dropdown-item-desc">Resolution & config audit</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dropdown: Operations -->
+        <div class="nav-dropdown" id="navOps">
+            <button class="nav-btn nav-dropdown-trigger" onclick="toggleNavDropdown('navOps')">
+                <i data-lucide="settings" class="nav-icon"></i>
+                <span class="nav-label">Operations</span>
+                <i data-lucide="chevron-down" class="nav-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu nav-dropdown-menu-wide">
+                <div class="dropdown-columns">
+                    <div class="dropdown-column">
+                        <div class="dropdown-header">Configuration</div>
+                        <button class="dropdown-item" data-view="configs" onclick="switchView('configs'); closeAllDropdowns()">
+                            <i data-lucide="file-diff" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Golden Configs</span>
+                                <span class="dropdown-item-desc">Diffs & cross-device search</span>
+                            </div>
+                        </button>
+                        <button class="dropdown-item" data-view="templates" onclick="switchView('templates'); closeAllDropdowns()">
+                            <i data-lucide="file-code" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Templates</span>
+                                <span class="dropdown-item-desc">Jinja2 rendering & deploy</span>
+                            </div>
+                        </button>
+                        <button class="dropdown-item" data-view="validation" onclick="switchView('validation'); closeAllDropdowns()">
+                            <i data-lucide="shield-check" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Validation</span>
+                                <span class="dropdown-item-desc">AI compliance checking</span>
+                            </div>
+                        </button>
+                        <button class="dropdown-item" data-view="compare" onclick="switchView('compare'); closeAllDropdowns()">
+                            <i data-lucide="columns-2" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Compare</span>
+                                <span class="dropdown-item-desc">Side-by-side diff analysis</span>
+                            </div>
+                        </button>
+                        <button class="dropdown-item" data-view="git-export" onclick="switchView('git-export'); closeAllDropdowns()">
+                            <i data-lucide="git-branch" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Git Export</span>
+                                <span class="dropdown-item-desc">Version-control configs</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="dropdown-column">
+                        <div class="dropdown-header">Automation</div>
+                        <button class="dropdown-item" data-view="workflows" onclick="switchView('workflows'); closeAllDropdowns()">
+                            <i data-lucide="git-merge" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Workflows</span>
+                                <span class="dropdown-item-desc">Chain MCP operations</span>
+                            </div>
+                        </button>
+                        <button class="dropdown-item" data-view="scheduler" onclick="switchView('scheduler'); closeAllDropdowns()">
+                            <i data-lucide="clock" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Scheduler</span>
+                                <span class="dropdown-item-desc">CRON-style task execution</span>
+                            </div>
+                        </button>
+                        <button class="dropdown-item" data-view="logs" onclick="switchView('logs'); closeAllDropdowns()">
+                            <i data-lucide="scroll-text" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Log Forensics</span>
+                                <span class="dropdown-item-desc">Browse & analyze logs</span>
+                            </div>
+                        </button>
+                        <button class="dropdown-item" data-view="notifications" onclick="switchView('notifications'); closeAllDropdowns()">
+                            <i data-lucide="bell" class="dropdown-icon"></i>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-title">Alerts</span>
+                                <span class="dropdown-item-desc">Slack, webhook notifications</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="header-right">
+        <button class="header-icon-btn ai-copilot-toggle" id="aiCopilotToggle" onclick="toggleAICopilot()" title="AI Copilot">
+            <i data-lucide="sparkles" class="ai-sparkle-icon"></i>
+            <span class="ai-pulse-dot" id="aiPulseDot"></span>
+        </button>
+        <button class="header-icon-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme">
+            <i data-lucide="sun-moon"></i>
+        </button>
+        <div class="header-status" id="connectionStatus" title="Connected">
+            <div class="status-dot online"></div>
+            <span class="status-text">Live</span>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" title="Menu">
+            <i data-lucide="menu"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Dropdown backdrop -->
+<div class="dropdown-backdrop" id="dropdownBackdrop" onclick="closeAllDropdowns()"></div>
+
+<!-- ═══ Main Content ═══ -->
+<main class="main-content" id="mainContent">
+    <!-- ═══ DASHBOARD VIEW ═══ -->
+    <section class="view active" id="view-dashboard">
+        <div class="view-header">
+            <div class="view-header-top">
+                <div class="view-header-badge"><i data-lucide="layout-dashboard" class="view-header-badge-icon"></i></div>
+                <div>
+                    <h2>Network Intelligence</h2>
+                    <p class="view-subtitle">Autonomous monitoring · Real-time analysis</p>
+                </div>
+                <button class="help-icon-btn" onclick="showViewHelp('dashboard')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+        </div>
+        
+        <!-- Bootstrap Banner — shown on first run when no golden configs exist -->
+        <div class="bootstrap-banner card" id="bootstrapBanner" style="display:none">
+            <div class="card-body" style="display:flex;align-items:center;gap:16px;padding:20px">
+                <div style="flex-shrink:0">
+                    <i data-lucide="download-cloud" style="width:40px;height:40px;color:var(--hpe-green)"></i>
+                </div>
+                <div style="flex:1">
+                    <h3 style="margin:0 0 4px 0">Welcome to Junos AI NOC</h3>
+                    <p class="text-muted" style="margin:0" id="bootstrapMsg">
+                        No device configurations found. Sync configs from your MCP-connected routers to enable topology, analytics, and AI features.
+                    </p>
+                </div>
+                <div style="flex-shrink:0;display:flex;gap:8px">
+                    <button class="btn-primary" onclick="bootstrapSync()" id="bootstrapSyncBtn">
+                        <i data-lucide="refresh-cw" class="btn-icon"></i> Sync All Configs
+                    </button>
+                    <button class="btn-sm" onclick="dismissBootstrap()" title="Dismiss">
+                        <i data-lucide="x" class="btn-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="bootstrapProgress" style="display:none;padding:0 20px 16px">
+                <div class="text-muted" id="bootstrapProgressText">Syncing...</div>
+            </div>
+        </div>
+        
+        <!-- AI Contextual Bar -->
+        <div class="ai-context-bar" id="dashboardAIBar">
+            <div class="ai-bar-left">
+                <i data-lucide="sparkles" class="ai-bar-icon"></i>
+                <span class="ai-bar-text" id="dashboardAIText">AI is analyzing your network health...</span>
+            </div>
+            <div class="ai-bar-actions">
+                <button class="ai-bar-btn" onclick="aiQuickAction('dashboard', 'health')"><i data-lucide="activity"></i> Health Check</button>
+                <button class="ai-bar-btn" onclick="aiQuickAction('dashboard', 'anomalies')"><i data-lucide="alert-triangle"></i> Anomalies</button>
+                <button class="ai-bar-btn" onclick="aiQuickAction('dashboard', 'recommendations')"><i data-lucide="lightbulb"></i> Optimize</button>
+            </div>
+        </div>
+        
+        <!-- Stats Cards -->
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card accent-green">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="totalDevices">—</span>
+                    <span class="stat-label">Total Devices</span>
+                </div>
+            </div>
+            <div class="stat-card accent-blue">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="totalLinks">—</span>
+                    <span class="stat-label">Physical Links</span>
+                </div>
+            </div>
+            <div class="stat-card accent-purple">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="totalBGP">—</span>
+                    <span class="stat-label">iBGP Sessions</span>
+                </div>
+            </div>
+            <div class="stat-card accent-teal">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="redundancyScore">—</span>
+                    <span class="stat-label">Redundancy Score</span>
+                </div>
+            </div>
+            <div class="stat-card accent-amber">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="graphDiameter">—</span>
+                    <span class="stat-label">Graph Diameter</span>
+                </div>
+            </div>
+            <div class="stat-card accent-rose">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="spofCount">—</span>
+                    <span class="stat-label">Points of Failure</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mini Topology + Protocol Breakdown -->
+        <div class="dashboard-grid">
+            <div class="card card-lg">
+                <div class="card-header">
+                    <h3>Network Topology Overview</h3>
+                    <button class="btn-sm" onclick="switchView('topology')">Expand →</button>
+                </div>
+                <div class="card-body">
+                    <div id="miniTopology" class="mini-topology"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3>Device Roles</h3></div>
+                <div class="card-body">
+                    <div id="roleChart" class="donut-chart-container"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3>Protocol Summary</h3></div>
+                <div class="card-body">
+                    <div id="protocolBars" class="protocol-bars"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Device Quick Table -->
+        <div class="card card-full">
+            <div class="card-header">
+                <h3>Device Inventory</h3>
+                <div class="search-inline">
+                    <input type="text" id="deviceFilter" placeholder="Filter devices..." oninput="filterDeviceTable()">
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="data-table" id="deviceTable">
+                    <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Role</th>
+                            <th>Loopback</th>
+                            <th>Interfaces</th>
+                            <th>IS-IS</th>
+                            <th>BGP</th>
+                            <th>LDP</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="deviceTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TOPOLOGY VIEW ═══ -->
+    <section class="view" id="view-topology">
+        <div class="view-header">
+            <div class="view-header-top">
+                <div class="view-header-badge"><i data-lucide="network" class="view-header-badge-icon"></i></div>
+                <div>
+                    <h2>Network Topology</h2>
+                    <p class="view-subtitle">Interactive force-directed visualization</p>
+                </div>
+                <button class="help-icon-btn" onclick="showViewHelp('topology')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+        </div>
+        <!-- AI Contextual Bar -->
+        <div class="ai-context-bar" id="topologyAIBar">
+            <div class="ai-bar-left">
+                <i data-lucide="sparkles" class="ai-bar-icon"></i>
+                <span class="ai-bar-text" id="topologyAIText">AI watching topology interactions</span>
+            </div>
+            <div class="ai-bar-actions">
+                <button class="ai-bar-btn" onclick="aiQuickAction('topology', 'redundancy')"><i data-lucide="shield"></i> Redundancy</button>
+                <button class="ai-bar-btn" onclick="aiQuickAction('topology', 'capacity')"><i data-lucide="gauge"></i> Capacity</button>
+            </div>
+        </div>
+        <div class="topology-controls">
+            <div class="control-group">
+                <label>Layout</label>
+                <select id="topoLayout" onchange="changeTopoLayout(this.value)">
+                    <option value="force">Force-Directed</option>
+                    <option value="hierarchical">Hierarchical</option>
+                    <option value="radial">Radial</option>
+                    <option value="circular">Circular</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Show</label>
+                <div class="toggle-group">
+                    <label class="toggle"><input type="checkbox" id="showISIS" checked onchange="updateTopoLayers()"> <span>IS-IS</span></label>
+                    <label class="toggle"><input type="checkbox" id="showBGP" checked onchange="updateTopoLayers()"> <span>iBGP</span></label>
+                    <label class="toggle"><input type="checkbox" id="showLDP" onchange="updateTopoLayers()"> <span>LDP</span></label>
+                    <label class="toggle"><input type="checkbox" id="showLabels" checked onchange="updateTopoLayers()"> <span>Labels</span></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <button class="btn-primary" onclick="resetTopology()">
+                    <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/></svg>
+                    Reset
+                </button>
+            </div>
+        </div>
+        <div class="topology-container">
+            <svg id="topologySVG" class="topology-svg"></svg>
+            <div class="topology-legend">
+                <div class="legend-item"><span class="legend-dot pe"></span> PE Router</div>
+                <div class="legend-item"><span class="legend-dot p"></span> P Router</div>
+                <div class="legend-item"><span class="legend-dot rr"></span> Route Reflector</div>
+                <div class="legend-line"><span class="legend-link physical"></span> Physical Link</div>
+                <div class="legend-line"><span class="legend-link bgp"></span> iBGP Session</div>
+            </div>
+        </div>
+        <!-- Node Details Panel -->
+        <div class="node-detail-panel" id="nodeDetailPanel">
+            <button class="panel-close" onclick="closeNodeDetail()" title="Close"><i data-lucide="x" class="panel-close-icon"></i></button>
+            <div id="nodeDetailContent"></div>
+        </div>
+    </section>
+
+    <!-- ═══ DEVICES VIEW ═══ -->
+    <section class="view" id="view-devices">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Device Inventory</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('devices')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Complete device management &amp; monitoring</p>
+        </div>
+        <div class="devices-grid" id="devicesGrid"></div>
+    </section>
+
+    <!-- ═══ CONFIGS VIEW ═══ -->
+    <section class="view" id="view-configs">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Configuration Management</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('configs')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Golden configs, diffs, and cross-device search</p>
+        </div>
+        <!-- AI Contextual Bar -->
+        <div class="ai-context-bar" id="configsAIBar">
+            <div class="ai-bar-left">
+                <i data-lucide="sparkles" class="ai-bar-icon"></i>
+                <span class="ai-bar-text" id="configsAIText">AI will audit any config you view</span>
+            </div>
+            <div class="ai-bar-actions">
+                <button class="ai-bar-btn" onclick="aiQuickAction('configs', 'audit')"><i data-lucide="shield-check"></i> Audit Config</button>
+                <button class="ai-bar-btn" onclick="aiQuickAction('configs', 'drift')"><i data-lucide="git-compare"></i> Drift Check</button>
+                <button class="ai-bar-btn" onclick="bootstrapSync()"><i data-lucide="refresh-cw"></i> Sync from MCP</button>
+            </div>
+        </div>
+        <div class="config-toolbar">
+            <div class="search-box">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                <input type="text" id="configSearchInput" placeholder="Search across all configs (supports regex)..." onkeydown="if(event.key==='Enter')searchConfigs()">
+                <label class="toggle compact"><input type="checkbox" id="regexToggle"> <span>Regex</span></label>
+                <button class="btn-primary" onclick="searchConfigs()">Search</button>
+            </div>
+        </div>
+        <div class="config-panels">
+            <div class="config-list" id="configList"></div>
+            <div class="config-viewer" id="configViewer">
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <p>Select a config to view</p>
+                </div>
+            </div>
+        </div>
+        <div class="search-results" id="searchResults" style="display:none">
+            <div class="card-header"><h3>Search Results</h3><button class="btn-sm" onclick="document.getElementById('searchResults').style.display='none'">Close</button></div>
+            <div class="card-body" id="searchResultsBody"></div>
+        </div>
+    </section>
+
+    <!-- ═══ PATH FINDER VIEW ═══ -->
+    <section class="view" id="view-pathfinder">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Shortest Path Finder</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('pathfinder')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">IS-IS metric-based shortest path analysis</p>
+        </div>
+        <div class="pathfinder-controls">
+            <div class="path-input-group">
+                <div class="path-field">
+                    <label>Source Router</label>
+                    <select id="pathSource"></select>
+                </div>
+                <div class="path-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+                <div class="path-field">
+                    <label>Target Router</label>
+                    <select id="pathTarget"></select>
+                </div>
+                <button class="btn-primary btn-lg" onclick="findShortestPath()">
+                    Find Path
+                </button>
+            </div>
+        </div>
+        <div class="path-results" id="pathResults">
+            <div class="empty-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg>
+                <p>Select source and target to find the optimal path</p>
+            </div>
+        </div>
+        <div class="path-topology-container">
+            <svg id="pathTopologySVG" class="topology-svg"></svg>
+        </div>
+    </section>
+
+    <!-- ═══ AI CHAT VIEW ═══ -->
+    <section class="view" id="view-ai-chat">
+        <div class="view-header">
+            <div class="view-header-top">
+                <div class="view-header-badge ai-badge-glow"><i data-lucide="bot" class="view-header-badge-icon"></i></div>
+                <div>
+                    <h2>AI Command Center</h2>
+                    <p class="view-subtitle">Autonomous Agent · Powered by Hypered Brain Engine</p>
+                </div>
+                <button class="help-icon-btn" onclick="showViewHelp('ai-chat')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+        </div>
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-welcome">
+                    <div class="ai-avatar">
+                        <svg viewBox="0 0 32 32" fill="currentColor"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><circle cx="16" cy="8" r="3"/><circle cx="8" cy="22" r="3"/><circle cx="24" cy="22" r="3"/><line x1="16" y1="11" x2="9.5" y2="19.5" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="11" x2="22.5" y2="19.5" stroke="currentColor" stroke-width="1.5"/><line x1="11" y1="22" x2="21" y2="22" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </div>
+                    <h3>Junos AI Digital Partner</h3>
+                    <p>I'm embedded in every function of this NOC. Ask me anything, or use the <strong>AI Copilot</strong> button on any view for contextual intelligence.</p>
+                    <div class="quick-actions">
+                        <button class="quick-btn" onclick="sendQuickChat('Give me a full network health assessment')"><i data-lucide="bar-chart-3" class="quick-btn-icon"></i> Health Assessment</button>
+                        <button class="quick-btn" onclick="sendQuickChat('What are the single points of failure and how to fix them?')"><i data-lucide="alert-triangle" class="quick-btn-icon"></i> SPOF + Remediation</button>
+                        <button class="quick-btn" onclick="sendQuickChat('Audit all BGP sessions and identify issues')"><i data-lucide="link-2" class="quick-btn-icon"></i> BGP Audit</button>
+                        <button class="quick-btn" onclick="sendQuickChat('Run a full security compliance audit on all routers')"><i data-lucide="shield-check" class="quick-btn-icon"></i> Security Audit</button>
+                        <button class="quick-btn" onclick="sendQuickChat('Compare current configs against best practices')"><i data-lucide="clipboard-check" class="quick-btn-icon"></i> Best Practice Check</button>
+                        <button class="quick-btn" onclick="sendQuickChat('Show my recent actions and AI audit trail')"><i data-lucide="scroll-text" class="quick-btn-icon"></i> Audit Trail</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                    <textarea id="chatInput" placeholder="Ask your AI partner anything about the network..." rows="1" onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault();sendChat()}"></textarea>
+                    <button class="send-btn" onclick="sendChat()" title="Send message">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TEMPLATES VIEW ═══ -->
+    <section class="view" id="view-templates">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Template Engine</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('templates')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Jinja2 template rendering &amp; deployment to live routers via MCP</p>
+        </div>
+        <div class="template-layout">
+            <div class="template-sidebar">
+                <h4>Available Templates</h4>
+                <div id="templateList" class="template-list"></div>
+            </div>
+            <div class="template-main">
+                <div class="template-editor-area">
+                    <div class="card">
+                        <div class="card-header"><h3>Template Source</h3></div>
+                        <div class="card-body">
+                            <pre id="templateSource" class="config-pre" style="min-height:180px">Select a template from the sidebar</pre>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3>Variables (YAML/JSON)</h3></div>
+                        <div class="card-body">
+                            <textarea id="templateVars" class="template-vars-input" placeholder='{"local_as": 65000, "neighbors": [{"ip": "10.0.0.1"}]}'></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-actions">
+                    <button class="btn-primary" onclick="renderTemplate()"><i data-lucide="eye" class="btn-icon"></i> Render Preview</button>
+                    <select id="templateDeployRouter" title="Deploy target"></select>
+                    <button class="btn-primary btn-deploy" onclick="deployTemplate()"><i data-lucide="upload" class="btn-icon"></i> Deploy to Router</button>
+                </div>
+                <div class="card" id="templateOutput" style="display:none">
+                    <div class="card-header"><h3>Rendered Output</h3><span id="templateOutputLines" class="badge badge-yes"></span></div>
+                    <div class="card-body"><pre id="templateRendered" class="config-pre"></pre></div>
+                </div>
+                <div id="templateDeployResult" style="display:none" class="card">
+                    <div class="card-header"><h3>Deployment Result</h3></div>
+                    <div class="card-body"><pre id="deployResultContent"></pre></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ LOGS VIEW ═══ -->
+    <section class="view" id="view-logs">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Log Forensics</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('logs')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Browse, filter, and analyze system logs</p>
+        </div>
+        <div class="log-layout">
+            <div class="log-sidebar">
+                <h4>Log Files</h4>
+                <div id="logFileList" class="config-list"></div>
+            </div>
+            <div class="log-main">
+                <div class="log-toolbar">
+                    <select id="logLevelFilter" title="Filter by level" onchange="reloadLog()">
+                        <option value="">All Levels</option>
+                        <option value="ERROR">ERROR</option>
+                        <option value="WARNING">WARNING</option>
+                        <option value="INFO">INFO</option>
+                        <option value="DEBUG">DEBUG</option>
+                    </select>
+                    <input type="text" id="logSearchInput" placeholder="Search logs..." onkeydown="if(event.key==='Enter')reloadLog()">
+                    <input type="number" id="logTailLines" placeholder="Tail N lines" min="1" max="5000" title="Show last N lines">
+                    <button class="btn-primary" onclick="reloadLog()">Apply</button>
+                    <button class="btn-outline" onclick="analyzeLog()"><i data-lucide="bot" class="btn-icon"></i> AI Analyze</button>
+                </div>
+                <div class="log-viewer" id="logViewer">
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <p>Select a log file to view</p>
+                    </div>
+                </div>
+                <div id="logAnalysis" style="display:none" class="card">
+                    <div class="card-header"><h3><i data-lucide="bot" class="card-header-icon"></i> AI Log Analysis</h3></div>
+                    <div class="card-body"><div id="logAnalysisContent"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SCHEDULER VIEW ═══ -->
+    <section class="view" id="view-scheduler">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Task Scheduler</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('scheduler')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Scheduled command execution with CRON-style intervals</p>
+        </div>
+        <div class="scheduler-create card">
+            <div class="card-header"><h3>Create Scheduled Task</h3></div>
+            <div class="card-body">
+                <div class="scheduler-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Task Name</label>
+                            <input type="text" id="schedName" placeholder="e.g. BGP Health Check">
+                        </div>
+                        <div class="form-group">
+                            <label>Interval</label>
+                            <select id="schedInterval" title="Schedule interval">
+                                <option value="30s">Every 30 seconds</option>
+                                <option value="5m" selected>Every 5 minutes</option>
+                                <option value="15m">Every 15 minutes</option>
+                                <option value="1h">Every hour</option>
+                                <option value="6h">Every 6 hours</option>
+                                <option value="24h">Daily</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Command</label>
+                            <input type="text" id="schedCommand" placeholder="show bgp summary">
+                        </div>
+                        <div class="form-group">
+                            <label>Target Routers</label>
+                            <select id="schedRouters" multiple title="Target routers"></select>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="createScheduledTask()"><i data-lucide="plus" class="btn-icon"></i> Create Task</button>
+                </div>
+            </div>
+        </div>
+        <div class="card card-full">
+            <div class="card-header"><h3>Active Tasks</h3></div>
+            <div class="card-body">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Name</th><th>Command</th><th>Interval</th><th>Routers</th><th>Last Run</th><th>Runs</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="schedulerTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ WORKFLOWS VIEW ═══ -->
+    <section class="view" id="view-workflows">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Workflow Builder</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('workflows')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Chain MCP operations, templates, AI analysis, and conditions</p>
+        </div>
+        <div class="workflow-layout">
+            <div class="workflow-sidebar">
+                <h4>Saved Workflows</h4>
+                <div id="workflowList" class="config-list"></div>
+                <button class="btn-primary" style="margin-top:12px;width:100%" onclick="newWorkflow()">+ New Workflow</button>
+            </div>
+            <div class="workflow-main">
+                <div class="workflow-header-bar">
+                    <input type="text" id="workflowName" placeholder="Workflow name..." class="workflow-name-input">
+                    <button class="btn-primary" onclick="saveCurrentWorkflow()"><i data-lucide="save" class="btn-icon"></i> Save</button>
+                    <button class="btn-primary btn-deploy" onclick="executeCurrentWorkflow()"><i data-lucide="play" class="btn-icon"></i> Execute</button>
+                </div>
+                <div id="workflowSteps" class="workflow-steps">
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        <p>Add steps to build your workflow</p>
+                    </div>
+                </div>
+                <div class="workflow-add-step">
+                    <select id="stepType" title="Step type">
+                        <option value="command">MCP Command</option>
+                        <option value="batch">Batch Command</option>
+                        <option value="template">Render Template</option>
+                        <option value="deploy">Deploy Config</option>
+                        <option value="ai_analyze">AI Analyze</option>
+                        <option value="condition">Condition Check</option>
+                        <option value="wait">Wait</option>
+                        <option value="rest_call">REST API Call</option>
+                        <option value="python_snippet">Python Snippet</option>
+                        <option value="ping_sweep">Ping Sweep</option>
+                        <option value="validate">Validate Output</option>
+                        <option value="notify">Send Notification</option>
+                    </select>
+                    <button class="btn-outline" onclick="addWorkflowStep()">+ Add Step</button>
+                </div>
+                <div id="workflowResults" style="display:none" class="card">
+                    <div class="card-header"><h3>Execution Results</h3></div>
+                    <div class="card-body" id="workflowResultsBody"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ DEVICE POOLS VIEW ═══ -->
+    <section class="view" id="view-pools">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Device Pools</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('pools')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Group devices by role, location, or function with AI-recommended groupings</p>
+        </div>
+        <div class="pool-toolbar">
+            <button class="btn-primary" onclick="showCreatePoolModal()"><i data-lucide="plus" class="btn-icon"></i> Create Pool</button>
+            <button class="btn-outline" onclick="aiRecommendPools()"><i data-lucide="bot" class="btn-icon"></i> AI Recommend Pools</button>
+        </div>
+        <div id="aiPoolRecommendations" style="display:none" class="card">
+            <div class="card-header"><h3><i data-lucide="bot" class="card-header-icon"></i> AI Pool Recommendations</h3><button class="btn-sm" onclick="document.getElementById('aiPoolRecommendations').style.display='none'">Close</button></div>
+            <div class="card-body" id="aiPoolRecBody"></div>
+        </div>
+        <div id="poolsGrid" class="pools-grid"></div>
+        <!-- Create Pool Modal -->
+        <div id="createPoolModal" class="modal-overlay" style="display:none">
+            <div class="modal-content">
+                <h3>Create Device Pool</h3>
+                <div class="form-group"><label>Pool Name</label><input type="text" id="poolName" placeholder="e.g. Core Routers"></div>
+                <div class="form-group"><label>Description</label><input type="text" id="poolDesc" placeholder="Description..."></div>
+                <div class="form-group"><label>Color</label><input type="color" id="poolColor" value="#01A982"></div>
+                <div class="form-group"><label>Devices</label><select id="poolDevices" multiple title="Select devices" style="height:120px"></select></div>
+                <div class="form-group"><label>Tags (comma-separated)</label><input type="text" id="poolTags" placeholder="core, mpls, backbone"></div>
+                <div class="modal-actions">
+                    <button class="btn-outline" onclick="hideCreatePoolModal()">Cancel</button>
+                    <button class="btn-primary" onclick="createPool()">Create</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PING / REACHABILITY VIEW ═══ -->
+    <section class="view" id="view-ping">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Ping &amp; Reachability</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('ping')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">ICMP-equivalent reachability testing via MCP with AI analysis</p>
+        </div>
+        <div class="ping-controls card">
+            <div class="card-header"><h3>Ping Controls</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Target Router</label>
+                        <select id="pingSingleRouter" title="Target router"></select>
+                    </div>
+                    <button class="btn-primary" onclick="pingSingleRouter()"><i data-lucide="radio" class="btn-icon"></i> Ping</button>
+                    <div class="form-group" style="margin-left:auto">
+                        <button class="btn-primary btn-deploy" onclick="pingSweepAll()"><i data-lucide="radar" class="btn-icon"></i> Sweep All Routers</button>
+                        <button class="btn-outline" onclick="aiAnalyzePing()"><i data-lucide="bot" class="btn-icon"></i> AI Analyze</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pingResults" class="ping-results-grid"></div>
+        <div id="pingAIAnalysis" style="display:none" class="card">
+            <div class="card-header"><h3><i data-lucide="bot" class="card-header-icon"></i> AI Reachability Analysis</h3></div>
+            <div class="card-body" id="pingAIContent"></div>
+        </div>
+    </section>
+
+    <!-- ═══ VALIDATION VIEW ═══ -->
+    <section class="view" id="view-validation">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Data Validation</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('validation')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Validate command outputs against patterns with AI compliance checking</p>
+        </div>
+        <div class="validation-form card">
+            <div class="card-header"><h3>Validation Rule</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group"><label>Router</label><select id="valRouter" title="Router"></select></div>
+                    <div class="form-group"><label>Command</label><input type="text" id="valCommand" placeholder="show bgp summary"></div>
+                    <div class="form-group"><label>Pattern</label><input type="text" id="valPattern" placeholder="Established"></div>
+                    <div class="form-group"><label>Match Type</label>
+                        <select id="valMatchType" title="Match type">
+                            <option value="contains">Contains</option>
+                            <option value="regex">Regex</option>
+                            <option value="not_contains">Not Contains</option>
+                            <option value="exact">Exact Match</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button class="btn-primary" onclick="runValidation()"><i data-lucide="check-circle-2" class="btn-icon"></i> Validate</button>
+                    <button class="btn-primary btn-deploy" onclick="runBatchValidation()"><i data-lucide="clipboard-list" class="btn-icon"></i> Validate All Routers</button>
+                    <button class="btn-outline" onclick="runAICompliance()"><i data-lucide="bot" class="btn-icon"></i> AI Compliance Audit</button>
+                </div>
+            </div>
+        </div>
+        <div id="validationResults" class="card" style="display:none">
+            <div class="card-header"><h3>Validation Results</h3></div>
+            <div class="card-body" id="validationResultsBody"></div>
+        </div>
+        <div id="complianceResults" class="card" style="display:none">
+            <div class="card-header"><h3><i data-lucide="bot" class="card-header-icon"></i> AI Compliance Report</h3></div>
+            <div class="card-body" id="complianceResultsBody"></div>
+        </div>
+    </section>
+
+    <!-- ═══ NOTIFICATIONS VIEW ═══ -->
+    <section class="view" id="view-notifications">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Notification Channels</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('notifications')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Configure Slack, Mattermost, Webhook alerts with AI-generated summaries</p>
+        </div>
+        <div class="notif-toolbar">
+            <button class="btn-primary" onclick="showCreateChannelModal()"><i data-lucide="plus" class="btn-icon"></i> Add Channel</button>
+            <button class="btn-outline" onclick="loadNotificationHistory()"><i data-lucide="history" class="btn-icon"></i> History</button>
+        </div>
+        <div id="notifChannels" class="notif-channels-grid"></div>
+        <!-- Test notification -->
+        <div class="card" style="margin-top:16px">
+            <div class="card-header"><h3>Send Test Notification</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group"><label>Channel</label><select id="notifTestChannel" title="Channel"></select></div>
+                    <div class="form-group"><label>Severity</label>
+                        <select id="notifSeverity" title="Severity">
+                            <option value="info">Info</option>
+                            <option value="warning">Warning</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label>Title</label><input type="text" id="notifTitle" placeholder="Test Alert"></div>
+                    <div class="form-group"><label>Message</label><input type="text" id="notifMessage" placeholder="This is a test notification"></div>
+                    <button class="btn-primary" onclick="sendTestNotification()"><i data-lucide="send" class="btn-icon"></i> Send</button>
+                    <button class="btn-outline" onclick="aiSummarizeAlerts()"><i data-lucide="bot" class="btn-icon"></i> AI Summary</button>
+                </div>
+            </div>
+        </div>
+        <div id="notifHistory" style="display:none" class="card">
+            <div class="card-header"><h3>Notification History</h3><button class="btn-sm" onclick="document.getElementById('notifHistory').style.display='none'">Close</button></div>
+            <div class="card-body" id="notifHistoryBody"></div>
+        </div>
+        <!-- Create Channel Modal -->
+        <div id="createChannelModal" class="modal-overlay" style="display:none">
+            <div class="modal-content">
+                <h3>Add Notification Channel</h3>
+                <div class="form-group"><label>Name</label><input type="text" id="channelName" placeholder="e.g. NOC Slack"></div>
+                <div class="form-group"><label>Type</label>
+                    <select id="channelType" title="Channel type">
+                        <option value="slack">Slack</option>
+                        <option value="mattermost">Mattermost</option>
+                        <option value="webhook">Generic Webhook</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Webhook URL</label><input type="text" id="channelWebhook" placeholder="https://hooks.slack.com/..."></div>
+                <div class="modal-actions">
+                    <button class="btn-outline" onclick="hideCreateChannelModal()">Cancel</button>
+                    <button class="btn-primary" onclick="createChannel()">Add Channel</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ GIT EXPORT VIEW ═══ -->
+    <section class="view" id="view-git-export">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Configuration Git Export</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('git-export')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Version-control golden configs with AI-generated commit messages</p>
+        </div>
+        <div class="git-toolbar">
+            <button class="btn-primary" onclick="gitInitRepo()"><i data-lucide="settings" class="btn-icon"></i> Init Repo</button>
+            <button class="btn-primary btn-deploy" onclick="gitExportConfigs()"><i data-lucide="package" class="btn-icon"></i> Export & Commit</button>
+            <div class="form-group" style="flex:1;margin-left:12px">
+                <input type="text" id="gitCommitMsg" placeholder="Custom commit message (leave blank for AI-generated)">
+            </div>
+        </div>
+        <div id="gitExportResult" style="display:none" class="card">
+            <div class="card-header"><h3>Export Result</h3></div>
+            <div class="card-body" id="gitExportResultBody"></div>
+        </div>
+        <div class="card card-full">
+            <div class="card-header"><h3>Commit History</h3><button class="btn-sm" onclick="loadGitLog()">Refresh</button></div>
+            <div class="card-body" id="gitLogBody">
+                <div class="empty-state"><p>Click "Init Repo" to start version-controlling configs</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ RESULT COMPARISON VIEW ═══ -->
+    <section class="view" id="view-compare">
+        <div class="view-header">
+            <div class="view-header-top"><h2>Result Comparison</h2><button class="help-icon-btn" onclick="showViewHelp('compare')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button></div>
+            <p class="view-subtitle">Capture command outputs and compare them side-by-side with AI diff analysis</p>
+        </div>
+        <div class="compare-capture card">
+            <div class="card-header"><h3>Capture New Result</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group"><label>Name</label><input type="text" id="captureName" placeholder="bgp-before-change"></div>
+                    <div class="form-group"><label>Router</label><select id="captureRouter" title="Router"></select></div>
+                    <div class="form-group"><label>Command</label><input type="text" id="captureCommand" placeholder="show bgp summary"></div>
+                    <button class="btn-primary" onclick="captureResult()"><i data-lucide="camera" class="btn-icon"></i> Capture</button>
+                </div>
+            </div>
+        </div>
+        <div class="compare-select card">
+            <div class="card-header"><h3>Compare Results</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group"><label>Result A</label><select id="compareA" title="Result A"></select></div>
+                    <div class="compare-arrow"><i data-lucide="arrows-left-right" class="compare-arrow-icon"></i></div>
+                    <div class="form-group"><label>Result B</label><select id="compareB" title="Result B"></select></div>
+                    <button class="btn-primary btn-deploy" onclick="compareResults()"><i data-lucide="scan-search" class="btn-icon"></i> Compare</button>
+                </div>
+            </div>
+        </div>
+        <div id="compareOutput" style="display:none" class="card">
+            <div class="card-header"><h3>Comparison Results</h3></div>
+            <div class="card-body" id="compareOutputBody"></div>
+        </div>
+        <div class="card card-full">
+            <div class="card-header"><h3>Captured Results</h3><button class="btn-sm" onclick="loadCapturedResults()">Refresh</button></div>
+            <div class="card-body">
+                <table class="data-table">
+                    <thead><tr><th>Name</th><th>Router</th><th>Command</th><th>Lines</th><th>Captured</th><th>Actions</th></tr></thead>
+                    <tbody id="capturedResultsBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ NETWORK DISCOVERY VIEW ═══ -->
+    <section class="view" id="view-discovery">
+        <div class="view-header">
+            <div class="view-header-top"><h2>Network Discovery</h2><button class="help-icon-btn" onclick="showViewHelp('discovery')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button></div>
+            <p class="view-subtitle">Infrastructure scanning, LLDP neighbor mapping, ARP tables, and device inventory via MCP</p>
+        </div>
+        <div class="card">
+            <div class="card-header"><h3>Full Infrastructure Scan</h3>
+                <button class="btn-primary" onclick="runDiscoveryScan()"><i data-lucide="scan" class="btn-icon"></i> Run Full Scan</button>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">Scan all routers for interfaces, LLDP neighbors, ARP tables, and OS versions. AI will build a complete infrastructure map.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header"><h3>Per-Device Discovery</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group"><label>Router</label><select id="discoveryRouter" title="Router"></select></div>
+                    <button class="btn-sm" onclick="discoverInterfaces()"><i data-lucide="network" class="btn-icon"></i> Interfaces</button>
+                    <button class="btn-sm" onclick="discoverNeighbors()"><i data-lucide="users" class="btn-icon"></i> Neighbors</button>
+                    <button class="btn-sm" onclick="discoverInterfaceDetail()"><i data-lucide="bar-chart-3" class="btn-icon"></i> Detail Stats</button>
+                </div>
+            </div>
+        </div>
+        <div id="discoveryOutput" class="card" style="display:none">
+            <div class="card-header"><h3>Discovery Results</h3>
+                <button class="btn-sm btn-deploy" onclick="aiAnalyzeDiscovery()"><i data-lucide="sparkles" class="btn-icon"></i> AI Analyze</button>
+            </div>
+            <div class="card-body"><pre id="discoveryResults" class="config-pre"></pre></div>
+        </div>
+        <div id="discoveryAI" class="card" style="display:none">
+            <div class="card-header"><h3>AI Infrastructure Analysis</h3></div>
+            <div class="card-body ai-analysis-content" id="discoveryAIContent"></div>
+        </div>
+    </section>
+
+    <!-- ═══ TRAFFIC ANALYSIS VIEW ═══ -->
+    <section class="view" id="view-traffic">
+        <div class="view-header">
+            <div class="view-header-top"><h2>Traffic Analysis</h2><button class="help-icon-btn" onclick="showViewHelp('traffic')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button></div>
+            <p class="view-subtitle">Protocol statistics, interface counters, flow analysis, and session tracking across the network</p>
+        </div>
+        <div class="card">
+            <div class="card-header"><h3>Protocol Statistics</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group"><label>Router</label><select id="trafficRouter" title="Router"></select></div>
+                    <button class="btn-sm" onclick="getProtocolStats()"><i data-lucide="layers" class="btn-icon"></i> Protocol Stats</button>
+                    <button class="btn-sm" onclick="getInterfaceCounters()"><i data-lucide="activity" class="btn-icon"></i> Interface Counters</button>
+                    <button class="btn-sm" onclick="getFlowAnalysis()"><i data-lucide="git-merge" class="btn-icon"></i> Flow Analysis</button>
+                    <button class="btn-sm" onclick="getSessionTable()"><i data-lucide="link" class="btn-icon"></i> Sessions</button>
+                </div>
+                <div class="form-row" style="margin-top:8px">
+                    <div class="form-group"><label>Interface Filter</label><input type="text" id="trafficInterface" placeholder="e.g. ge-0/0/0 (optional)"></div>
+                </div>
+            </div>
+        </div>
+        <div id="trafficOutput" class="card" style="display:none">
+            <div class="card-header"><h3>Traffic Data</h3>
+                <div>
+                    <select id="trafficAIType" title="AI analysis type">
+                        <option value="general">General Analysis</option>
+                        <option value="performance">Performance Focus</option>
+                        <option value="security">Security Focus</option>
+                        <option value="anomaly">Anomaly Detection</option>
+                    </select>
+                    <button class="btn-sm btn-deploy" onclick="aiAnalyzeTraffic()"><i data-lucide="sparkles" class="btn-icon"></i> AI Analyze</button>
+                </div>
+            </div>
+            <div class="card-body"><pre id="trafficResults" class="config-pre"></pre></div>
+        </div>
+        <div id="trafficAI" class="card" style="display:none">
+            <div class="card-header"><h3>AI Traffic Analysis</h3></div>
+            <div class="card-body ai-analysis-content" id="trafficAIContent"></div>
+        </div>
+    </section>
+
+    <!-- ═══ SECURITY CENTER VIEW ═══ -->
+    <section class="view" id="view-security">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Security Center</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('security')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">Threat detection, firewall audit, credential scanning, and CIS-style hardening reports</p>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header"><h3>Security Audit</h3></div>
+                <div class="card-body">
+                    <div class="form-group"><label>Router</label><select id="securityRouter" title="Router"></select></div>
+                    <button class="btn-primary" onclick="runSecurityAudit()" style="margin-top:8px;width:100%"><i data-lucide="shield-check" class="btn-icon"></i> Run Security Audit</button>
+                    <button class="btn-sm" onclick="runThreatCheck()" style="margin-top:6px;width:100%"><i data-lucide="shield-alert" class="btn-icon"></i> Threat Detection</button>
+                    <button class="btn-sm" onclick="runHardeningReport()" style="margin-top:6px;width:100%"><i data-lucide="file-check" class="btn-icon"></i> Hardening Report</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3>Fleet Security</h3></div>
+                <div class="card-body">
+                    <button class="btn-primary" onclick="runCredentialScan()" style="width:100%"><i data-lucide="key" class="btn-icon"></i> Credential Scan (All Routers)</button>
+                    <p class="text-muted" style="margin-top:8px">Scans all golden configs for cleartext passwords, weak SNMP communities, missing auth, and default credentials.</p>
+                    <button class="btn-sm" onclick="runProtocolHealthCheck()" style="margin-top:8px;width:100%"><i data-lucide="heart-pulse" class="btn-icon"></i> Protocol Health Check</button>
+                </div>
+            </div>
+        </div>
+        <div id="securityOutput" class="card" style="display:none">
+            <div class="card-header"><h3>Security Results</h3></div>
+            <div class="card-body"><pre id="securityRawData" class="config-pre"></pre></div>
+        </div>
+        <div id="securityAI" class="card" style="display:none">
+            <div class="card-header"><h3>AI Security Analysis</h3></div>
+            <div class="card-body ai-analysis-content" id="securityAIContent"></div>
+        </div>
+    </section>
+
+    <!-- ═══ DNS DIAGNOSTICS VIEW ═══ -->
+    <section class="view" id="view-dns">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>DNS Diagnostics</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('dns')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">DNS resolution testing, reverse lookups, batch queries, and configuration audit across the router fleet</p>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header"><h3>DNS Lookup</h3></div>
+                <div class="card-body">
+                    <div class="form-group"><label>Router</label><select id="dnsRouter" title="Router"></select></div>
+                    <div class="form-group"><label>Domain</label><input type="text" id="dnsDomain" placeholder="e.g. example.com"></div>
+                    <button class="btn-primary" onclick="dnsLookup()" style="margin-top:8px;width:100%"><i data-lucide="search" class="btn-icon"></i> Lookup</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3>Reverse DNS</h3></div>
+                <div class="card-body">
+                    <div class="form-group"><label>Router</label><select id="dnsReverseRouter" title="Router"></select></div>
+                    <div class="form-group"><label>IP Address</label><input type="text" id="dnsReverseIP" placeholder="e.g. 10.0.0.1"></div>
+                    <button class="btn-primary" onclick="dnsReverseLookup()" style="margin-top:8px;width:100%"><i data-lucide="arrow-left-right" class="btn-icon"></i> Reverse Lookup</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header"><h3>Batch DNS Check</h3></div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group" style="flex:2"><label>Domains (comma-separated)</label><input type="text" id="dnsBatchDomains" placeholder="example.com, test.org, dns.google"></div>
+                    <div class="form-group"><label>From Router</label><select id="dnsBatchRouter" title="Router"></select></div>
+                    <button class="btn-primary" onclick="dnsBatchLookup()"><i data-lucide="list" class="btn-icon"></i> Batch Lookup</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header"><h3>DNS Config Audit</h3>
+                <button class="btn-primary btn-deploy" onclick="dnsConfigAudit()"><i data-lucide="sparkles" class="btn-icon"></i> AI Audit All Routers</button>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">AI analyzes DNS configuration across all routers for consistency, redundancy, and security best practices.</p>
+            </div>
+        </div>
+        <div id="dnsOutput" class="card" style="display:none">
+            <div class="card-header"><h3>DNS Results</h3></div>
+            <div class="card-body"><pre id="dnsResults" class="config-pre"></pre></div>
+        </div>
+        <div id="dnsAI" class="card" style="display:none">
+            <div class="card-header"><h3>AI DNS Analysis</h3></div>
+            <div class="card-body ai-analysis-content" id="dnsAIContent"></div>
+        </div>
+    </section>
+
+    <!-- ═══ AI INVESTIGATION VIEW ═══ -->
+    <section class="view" id="view-investigate">
+        <!-- Content rendered dynamically by renderInvestigationView() in noc.js -->
+    </section>
+
+    <!-- ═══ REMEDIATION CENTER VIEW ═══ -->
+    <section class="view" id="view-remediate">
+        <!-- Content rendered dynamically by renderRemediationView() in noc.js -->
+    </section>
+
+    <!-- ═══ PREDICTIVE INTELLIGENCE VIEW ═══ -->
+    <section class="view" id="view-predictive">
+        <!-- Content rendered dynamically by renderPredictiveView() in noc.js -->
+    </section>
+
+    <!-- ═══ CAPACITY PLANNING VIEW ═══ -->
+    <section class="view" id="view-capacity">
+        <div class="view-header">
+            <div class="view-header-top">
+                <h2>Capacity Planning</h2>
+                <button class="help-icon-btn" onclick="showViewHelp('capacity')" title="What is this view?"><i data-lucide="help-circle" class="help-icon"></i></button>
+            </div>
+            <p class="view-subtitle">What-if failure analysis, multi-path computation, and AI-powered capacity recommendations</p>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header"><h3>What-If Failure Analysis</h3></div>
+                <div class="card-body">
+                    <div class="form-group"><label>Simulate Node Failure</label><select id="whatifNode" title="Node"><option value="">-- Select node --</option></select></div>
+                    <p class="text-muted">Or simulate a link failure:</p>
+                    <div class="form-row">
+                        <div class="form-group"><label>Link Source</label><select id="whatifLinkSrc" title="Source"><option value="">--</option></select></div>
+                        <div class="form-group"><label>Link Target</label><select id="whatifLinkDst" title="Target"><option value="">--</option></select></div>
+                    </div>
+                    <button class="btn-primary" onclick="runWhatIf()" style="margin-top:8px;width:100%"><i data-lucide="zap" class="btn-icon"></i> Simulate Failure</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3>Multi-Path Analysis</h3></div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group"><label>Source</label><select id="multipathSrc" title="Source"></select></div>
+                        <div class="form-group"><label>Target</label><select id="multipathDst" title="Target"></select></div>
+                    </div>
+                    <button class="btn-primary" onclick="runMultiPath()" style="margin-top:8px;width:100%"><i data-lucide="route" class="btn-icon"></i> Compute All Paths</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header"><h3>AI Capacity Plan</h3>
+                <button class="btn-primary btn-deploy" onclick="runCapacityPlan()"><i data-lucide="sparkles" class="btn-icon"></i> Generate Capacity Plan</button>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">AI analyzes the entire topology for bottlenecks, growth projections, and recommended upgrades.</p>
+            </div>
+        </div>
+        <div id="capacityOutput" class="card" style="display:none">
+            <div class="card-header"><h3>Analysis Results</h3></div>
+            <div class="card-body"><pre id="capacityRawResults" class="config-pre"></pre></div>
+        </div>
+        <div id="capacityAI" class="card" style="display:none">
+            <div class="card-header"><h3>AI Capacity Analysis</h3></div>
+            <div class="card-body ai-analysis-content" id="capacityAIContent"></div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ═══ AI Copilot Sidebar (Persistent — available from any view) ═══ -->
+<aside class="ai-copilot-sidebar" id="aiCopilotSidebar">
+    <div class="copilot-header">
+        <div class="copilot-title">
+            <i data-lucide="sparkles" class="copilot-title-icon"></i>
+            <span>AI Copilot</span>
+        </div>
+        <div class="copilot-header-actions">
+            <button class="copilot-action-btn" onclick="clearCopilotChat()" title="Clear"><i data-lucide="trash-2"></i></button>
+            <button class="copilot-action-btn" onclick="toggleAICopilot()" title="Close"><i data-lucide="x"></i></button>
+        </div>
+    </div>
+    <!-- Contextual Awareness Bar -->
+    <div class="copilot-context-bar" id="copilotContextBar">
+        <i data-lucide="eye" class="context-icon"></i>
+        <span id="copilotContextText">Watching: Dashboard</span>
+    </div>
+    <!-- AI Audit Trail -->
+    <div class="copilot-audit-section" id="copilotAuditSection">
+        <div class="copilot-section-header" onclick="toggleCopilotSection('audit')">
+            <i data-lucide="scroll-text"></i>
+            <span>Action Audit Trail</span>
+            <span class="audit-count" id="auditCount">0</span>
+            <i data-lucide="chevron-down" class="section-chevron"></i>
+        </div>
+        <div class="copilot-section-body" id="auditTrailBody">
+            <div class="audit-empty">No actions recorded yet. Start interacting with the NOC.</div>
+        </div>
+    </div>
+    <!-- AI Insights -->
+    <div class="copilot-insights-section" id="copilotInsightsSection">
+        <div class="copilot-section-header" onclick="toggleCopilotSection('insights')">
+            <i data-lucide="lightbulb"></i>
+            <span>AI Insights</span>
+            <i data-lucide="chevron-down" class="section-chevron"></i>
+        </div>
+        <div class="copilot-section-body" id="insightsBody">
+            <div class="insight-card">
+                <div class="insight-loading"><div class="loading" style="height:40px"></div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Proactive Suggestions (Phase 2) -->
+    <div class="copilot-suggestions-section" id="copilotSuggestionsSection">
+        <div class="copilot-section-header" onclick="toggleCopilotSection('suggestions')">
+            <i data-lucide="zap"></i>
+            <span>Proactive Suggestions</span>
+            <i data-lucide="chevron-down" class="section-chevron"></i>
+        </div>
+        <div class="copilot-section-body" id="copilotSuggestionsBody">
+            <div class="suggestion-empty">Open the copilot to load suggestions.</div>
+        </div>
+    </div>
+    <!-- Copilot Chat -->
+    <div class="copilot-chat">
+        <div class="copilot-messages" id="copilotMessages"></div>
+        <div class="copilot-input-area">
+            <textarea id="copilotInput" placeholder="Ask AI about this view..." rows="1" onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault();sendCopilotMessage()}"></textarea>
+            <button class="copilot-send-btn" onclick="sendCopilotMessage()" title="Send">
+                <i data-lucide="send"></i>
+            </button>
+        </div>
+    </div>
+</aside>
+<!-- ═══ Help Modal ═══ -->
+<div class="help-modal-overlay" id="helpModal" style="display:none" onclick="if(event.target===this)closeViewHelp()">
+    <div class="help-modal">
+        <div class="help-modal-header">
+            <div class="help-modal-title-wrap">
+                <div class="help-modal-title-icon">
+                    <i data-lucide="help-circle"></i>
+                </div>
+                <div class="help-modal-title" id="helpModalTitle">View Help</div>
+            </div>
+            <button class="help-modal-close" onclick="closeViewHelp()" title="Close">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div id="helpModalBody"></div>
+    </div>
+</div>
+
+<script src="/static/js/noc.js"></script>
+<script>
+    // Initialize Lucide icons after DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    });
+</script>
+</body>
+</html>
